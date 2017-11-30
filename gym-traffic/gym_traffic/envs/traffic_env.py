@@ -49,9 +49,12 @@ class TrafficEnv(Env):
         self.sumo_cmd = [binary] + args
         self.sumo_step = 0
         self.lights = lights
+
+        # TO DO: re-define action space !!
         self.action_space = spaces.DiscreteToMultiDiscrete(
             spaces.MultiDiscrete([[0, len(light.actions) - 1] for light in self.lights]), 'all')
 
+        # TO DO: re-define observation space !!
         trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
                                   shape=(len(self.loops) * len(self.loop_variables),))
         lightspaces = [spaces.Discrete(len(light.actions)) for light in self.lights]
@@ -87,6 +90,7 @@ class TrafficEnv(Env):
             traci.close()
             self.sumo_running = False
 
+    # TO DO: re-define reward function!!
     def _reward(self):
         # reward = 0.0
         # for lane in self.lanes:
@@ -109,6 +113,8 @@ class TrafficEnv(Env):
         action = self.action_space(action)
         self.start_sumo()
         self.sumo_step += 1
+
+        # TO DO: re-write the following execution commands to sumo!!
         assert (len(action) == len(self.lights))
         for act, light in zip(action, self.lights):
             signal = light.act(act)
@@ -126,6 +132,7 @@ class TrafficEnv(Env):
         if self.mode == "gui":
             traci.gui.screenshot("View #0", self.pngfile)
 
+    # TO DO: re-write observation (scene conversion should be done here)!!
     def _observation(self):
         res = traci.inductionloop.getSubscriptionResults()
         obs = []
