@@ -91,7 +91,8 @@ def run():
     """execute the TraCI control loop"""
     step = 0
     # we start with phase 2 where EW has green
-    traci.vehicle.add('my_car', 'down', speed = 1)
+    traci.vehicle.add('my_car', 'down', speed = 0.1)
+    traci.vehicle.setColor('my_car',(0,255,0,0))
     traci.trafficlights.setPhase("0", 2)
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
@@ -114,6 +115,7 @@ def run():
             state.append(state_tuple)
         import IPython
         IPython.embed()
+        # traci.vehicle.setAccel('my_car',0.1)
     traci.close()
     sys.stdout.flush()
 

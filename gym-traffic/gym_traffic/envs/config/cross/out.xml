@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Fri Dec  1 00:38:31 2017 by SUMO gui Version 0.31.0
+<!-- generated on Fri Dec  1 15:19:47 2017 by SUMO gui Version 0.31.0
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
@@ -12,7 +12,7 @@
     </input>
 
     <traci_server>
-        <remote-port value="65066"/>
+        <remote-port value="53453"/>
     </traci_server>
 
     <gui_only>
@@ -38,4 +38,888 @@
     <interval begin="0.00" end="1.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="0.00" end="1.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
    <interval begin="0.00" end="1.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="1.00" end="2.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="1.00" end="2.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1.00" end="2.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="2.00" end="3.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="2.00" end="3.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2.00" end="3.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="3.00" end="4.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="3.00" end="4.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3.00" end="4.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="4.00" end="5.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="4.00" end="5.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4.00" end="5.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="5.00" end="6.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="5.00" end="6.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="5.00" end="6.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="6.00" end="7.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="6.00" end="7.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="6.00" end="7.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="7.00" end="8.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="7.00" end="8.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="7.00" end="8.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="8.00" end="9.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="8.00" end="9.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="8.00" end="9.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="9.00" end="10.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="9.00" end="10.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="9.00" end="10.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="10.00" end="11.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="10.00" end="11.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="10.00" end="11.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="-1.00" meanHaltsPerVehicleWithin="-1.00" meanDurationWithin="-1.00" vehicleSumWithin="0" meanIntervalSpeedWithin="-1.00" meanIntervalHaltsPerVehicleWithin="-1.00" meanIntervalDurationWithin="-1.00" meanTimeLossWithin="-1.00"/>
+    <interval begin="11.00" end="12.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="11.00" end="12.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="11.00" end="12.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="8.48" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="1.71" vehicleSumWithin="1" meanIntervalSpeedWithin="8.48" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.00"/>
+    <interval begin="12.00" end="13.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="12.00" end="13.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="12.00" end="13.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="8.93" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="2.23" vehicleSumWithin="2" meanIntervalSpeedWithin="9.21" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.16"/>
+    <interval begin="13.00" end="14.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="13.00" end="14.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="13.00" end="14.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.22" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="3.23" vehicleSumWithin="2" meanIntervalSpeedWithin="9.91" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.29"/>
+    <interval begin="14.00" end="15.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="14.00" end="15.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="14.00" end="15.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.54" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="4.23" vehicleSumWithin="2" meanIntervalSpeedWithin="10.57" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.24"/>
+    <interval begin="15.00" end="16.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="14.63" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="15.00" end="16.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="15.00" end="16.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="15.00" end="16.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.39" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="3.95" vehicleSumWithin="3" meanIntervalSpeedWithin="10.41" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.12"/>
+    <interval begin="16.00" end="17.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="33.48" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="16.00" end="17.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="23.20" speed="11.90" length="4.50" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="16.00" end="17.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="16.00" end="17.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.75" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="4.95" vehicleSumWithin="3" meanIntervalSpeedWithin="11.20" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.19"/>
+    <interval begin="17.00" end="18.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="2.90" speed="12.37" length="4.50" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="17.00" end="18.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="17.00" end="18.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.62" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="4.88" vehicleSumWithin="4" meanIntervalSpeedWithin="11.00" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="18.00" end="19.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="18.00" end="19.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="18.00" end="19.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.66" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="5.06" vehicleSumWithin="5" meanIntervalSpeedWithin="11.03" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.13"/>
+    <interval begin="19.00" end="20.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="19.00" end="20.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="19.00" end="20.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.94" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="6.06" vehicleSumWithin="5" meanIntervalSpeedWithin="11.44" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.18"/>
+    <interval begin="20.00" end="21.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="37.37" speed="12.04" length="4.50" nVehEntered="1"/>
+    <interval begin="20.00" end="21.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="20.00" end="21.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="20.00" end="21.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.23" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="7.06" vehicleSumWithin="5" meanIntervalSpeedWithin="11.88" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.15"/>
+    <interval begin="21.00" end="22.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="21.00" end="22.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="21.00" end="22.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.10" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="6.97" vehicleSumWithin="6" meanIntervalSpeedWithin="11.68" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.09"/>
+    <interval begin="22.00" end="23.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="18.78" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="22.00" end="23.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="39.45" speed="11.41" length="4.50" nVehEntered="1"/>
+    <interval begin="22.00" end="23.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="22.00" end="23.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="22.00" end="23.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.40" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="7.97" vehicleSumWithin="6" meanIntervalSpeedWithin="12.16" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.12"/>
+    <interval begin="23.00" end="24.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="18.61" speed="12.04" length="4.50" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="23.00" end="24.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="33.56" speed="13.41" length="4.50" nVehEntered="1"/>
+   <interval begin="23.00" end="24.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.32" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="7.94" vehicleSumWithin="7" meanIntervalSpeedWithin="11.90" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.08"/>
+    <interval begin="24.00" end="25.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="24.00" end="25.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.81" speed="13.72" length="4.50" nVehEntered="1"/>
+    <interval begin="24.00" end="25.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="24.00" end="25.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.29" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="7.97" vehicleSumWithin="8" meanIntervalSpeedWithin="11.90" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.09"/>
+    <interval begin="25.00" end="26.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="25.00" end="26.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="25.00" end="26.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.27" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="8.10" vehicleSumWithin="9" meanIntervalSpeedWithin="11.78" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="26.00" end="27.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="37.57" speed="11.98" length="4.50" nVehEntered="1"/>
+    <interval begin="26.00" end="27.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="26.00" end="27.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="26.00" end="27.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.51" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="9.10" vehicleSumWithin="9" meanIntervalSpeedWithin="12.07" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.13"/>
+    <interval begin="27.00" end="28.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="27.00" end="28.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="32.66" speed="13.78" length="4.50" nVehEntered="1"/>
+   <interval begin="27.00" end="28.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.53" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="9.26" vehicleSumWithin="10" meanIntervalSpeedWithin="11.94" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="28.00" end="29.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="38.71" speed="11.62" length="4.50" nVehEntered="1"/>
+    <interval begin="28.00" end="29.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="28.00" end="29.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="28.00" end="29.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.75" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="10.26" vehicleSumWithin="10" meanIntervalSpeedWithin="12.33" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.11"/>
+    <interval begin="29.00" end="30.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="39.22" speed="11.47" length="4.50" nVehEntered="1"/>
+    <interval begin="29.00" end="30.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="29.00" end="30.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="16.51" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="29.00" end="30.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="29.00" end="30.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.69" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="10.35" vehicleSumWithin="11" meanIntervalSpeedWithin="12.20" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.08"/>
+    <interval begin="30.00" end="31.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="38.93" speed="11.56" length="4.50" nVehEntered="1"/>
+    <interval begin="30.00" end="31.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="33.13" speed="13.58" length="4.50" nVehEntered="1"/>
+    <interval begin="30.00" end="31.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="16.16" speed="13.77" length="4.50" nVehEntered="0"/>
+    <interval begin="30.00" end="31.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="30.00" end="31.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.71" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="10.54" vehicleSumWithin="12" meanIntervalSpeedWithin="12.20" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.09"/>
+    <interval begin="31.00" end="32.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="10.75" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="31.00" end="32.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="31.00" end="32.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="31.00" end="32.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.93" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="11.54" vehicleSumWithin="12" meanIntervalSpeedWithin="12.63" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.09"/>
+    <interval begin="32.00" end="33.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="26.73" speed="12.01" length="4.50" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="32.00" end="33.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="32.00" end="33.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.96" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="11.70" vehicleSumWithin="13" meanIntervalSpeedWithin="12.60" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.06"/>
+    <interval begin="33.00" end="34.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="33.00" end="34.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="31.04" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="33.00" end="34.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="33.00" end="34.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.15" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="12.70" vehicleSumWithin="13" meanIntervalSpeedWithin="12.43" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.11"/>
+    <interval begin="34.00" end="35.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="38.28" speed="11.76" length="4.50" nVehEntered="1"/>
+    <interval begin="34.00" end="35.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="2.42" speed="13.45" length="4.50" nVehEntered="0"/>
+    <interval begin="34.00" end="35.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="34.00" end="35.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.92" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="12.13" vehicleSumWithin="15" meanIntervalSpeedWithin="11.82" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="35.00" end="36.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="37.10" speed="12.13" length="4.50" nVehEntered="1"/>
+    <interval begin="35.00" end="36.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop6" nVehContrib="1" flow="3600.00" occupancy="33.51" speed="13.43" length="4.50" nVehEntered="1"/>
+    <interval begin="35.00" end="36.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="29.71" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="35.00" end="36.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="32.52" speed="13.84" length="4.50" nVehEntered="1"/>
+    <interval begin="35.00" end="36.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="35.00" end="36.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="35.00" end="36.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.09" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="13.13" vehicleSumWithin="15" meanIntervalSpeedWithin="12.12" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.13"/>
+    <interval begin="36.00" end="37.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="20.95" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="36.00" end="37.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop7" nVehContrib="1" flow="3600.00" occupancy="3.34" speed="13.62" length="4.50" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="36.00" end="37.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.34" speed="-1.00" length="-1.00" nVehEntered="1"/>
+   <interval begin="36.00" end="37.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.04" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="13.34" vehicleSumWithin="16" meanIntervalSpeedWithin="12.12" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="37.00" end="38.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="16.43" speed="12.04" length="4.50" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="37.00" end="38.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="32.60" speed="13.66" length="4.50" nVehEntered="0"/>
+   <interval begin="37.00" end="38.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.22" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="14.34" vehicleSumWithin="16" meanIntervalSpeedWithin="12.44" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="38.00" end="39.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="23.79" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="38.00" end="39.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="36.61" speed="12.29" length="4.50" nVehEntered="1"/>
+    <interval begin="38.00" end="39.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="38.00" end="39.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.95" speed="13.66" length="4.50" nVehEntered="1"/>
+    <interval begin="38.00" end="39.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="38.00" end="39.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.38" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="15.34" vehicleSumWithin="16" meanIntervalSpeedWithin="12.54" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="39.00" end="40.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="13.26" speed="12.15" length="4.50" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop6" nVehContrib="1" flow="3600.00" occupancy="32.82" speed="13.71" length="4.50" nVehEntered="1"/>
+    <interval begin="39.00" end="40.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="32.82" speed="13.71" length="4.50" nVehEntered="1"/>
+    <interval begin="39.00" end="40.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="39.00" end="40.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="39.00" end="40.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.29" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="15.48" vehicleSumWithin="17" meanIntervalSpeedWithin="12.17" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="40.00" end="41.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="40.00" end="41.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="40.00" end="41.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.21" meanHaltsPerVehicleWithin="0.00" meanDurationWithin="15.63" vehicleSumWithin="18" meanIntervalSpeedWithin="12.13" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.10"/>
+    <interval begin="41.00" end="42.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="40.34" speed="11.15" length="4.50" nVehEntered="1"/>
+    <interval begin="41.00" end="42.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop7" nVehContrib="1" flow="3600.00" occupancy="33.09" speed="13.60" length="4.50" nVehEntered="1"/>
+    <interval begin="41.00" end="42.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="41.00" end="42.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="41.00" end="42.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.31" meanHaltsPerVehicleWithin="0.06" meanDurationWithin="16.63" vehicleSumWithin="18" meanIntervalSpeedWithin="11.81" meanIntervalHaltsPerVehicleWithin="0.06" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.15"/>
+    <interval begin="42.00" end="43.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="42.00" end="43.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.53" speed="13.83" length="4.50" nVehEntered="1"/>
+    <interval begin="42.00" end="43.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="33.43" speed="13.46" length="4.50" nVehEntered="1"/>
+   <interval begin="42.00" end="43.00" id="detector0" meanTravelTime="30.81" meanOverlapTravelTime="31.14" meanSpeed="12.89" meanHaltsPerVehicle="0.00" meanTimeLoss="1.62" vehicleSum="1" meanSpeedWithin="11.10" meanHaltsPerVehicleWithin="0.06" meanDurationWithin="15.88" vehicleSumWithin="18" meanIntervalSpeedWithin="11.17" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.17"/>
+    <interval begin="43.00" end="44.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="43.00" end="44.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="43.00" end="44.00" id="detector0" meanTravelTime="30.51" meanOverlapTravelTime="30.84" meanSpeed="13.04" meanHaltsPerVehicle="0.00" meanTimeLoss="1.34" vehicleSum="1" meanSpeedWithin="11.05" meanHaltsPerVehicleWithin="0.06" meanDurationWithin="15.94" vehicleSumWithin="17" meanIntervalSpeedWithin="10.86" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.22"/>
+    <interval begin="44.00" end="45.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="38.28" speed="11.76" length="4.50" nVehEntered="1"/>
+    <interval begin="44.00" end="45.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="33.52" speed="13.43" length="4.50" nVehEntered="1"/>
+    <interval begin="44.00" end="45.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="44.00" end="45.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="44.00" end="45.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="11.11" meanHaltsPerVehicleWithin="0.06" meanDurationWithin="16.94" vehicleSumWithin="17" meanIntervalSpeedWithin="10.96" meanIntervalHaltsPerVehicleWithin="0.00" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.21"/>
+    <interval begin="45.00" end="46.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="23.04" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="45.00" end="46.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop7" nVehContrib="1" flow="3600.00" occupancy="33.50" speed="13.43" length="4.50" nVehEntered="1"/>
+    <interval begin="45.00" end="46.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="45.00" end="46.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="8.29" speed="-1.00" length="-1.00" nVehEntered="1"/>
+   <interval begin="45.00" end="46.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.96" meanHaltsPerVehicleWithin="0.11" meanDurationWithin="17.01" vehicleSumWithin="18" meanIntervalSpeedWithin="10.55" meanIntervalHaltsPerVehicleWithin="0.06" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.22"/>
+    <interval begin="46.00" end="47.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="17.12" speed="11.20" length="4.50" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="46.00" end="47.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="33.09" speed="13.60" length="4.50" nVehEntered="1"/>
+    <interval begin="46.00" end="47.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="24.63" speed="13.67" length="4.50" nVehEntered="0"/>
+   <interval begin="46.00" end="47.00" id="detector0" meanTravelTime="30.71" meanOverlapTravelTime="31.03" meanSpeed="12.92" meanHaltsPerVehicle="0.00" meanTimeLoss="1.62" vehicleSum="1" meanSpeedWithin="10.88" meanHaltsPerVehicleWithin="0.18" meanDurationWithin="17.16" vehicleSumWithin="17" meanIntervalSpeedWithin="10.09" meanIntervalHaltsPerVehicleWithin="0.06" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.27"/>
+    <interval begin="47.00" end="48.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="39.47" speed="11.40" length="4.50" nVehEntered="1"/>
+    <interval begin="47.00" end="48.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop5" nVehContrib="1" flow="3600.00" occupancy="33.09" speed="13.60" length="4.50" nVehEntered="1"/>
+    <interval begin="47.00" end="48.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="47.00" end="48.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="47.00" end="48.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.87" meanHaltsPerVehicleWithin="0.24" meanDurationWithin="18.16" vehicleSumWithin="17" meanIntervalSpeedWithin="9.64" meanIntervalHaltsPerVehicleWithin="0.06" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.31"/>
+    <interval begin="48.00" end="49.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop6" nVehContrib="1" flow="3600.00" occupancy="32.93" speed="13.66" length="4.50" nVehEntered="1"/>
+    <interval begin="48.00" end="49.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="48.00" end="49.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="48.00" end="49.00" id="detector0" meanTravelTime="31.27" meanOverlapTravelTime="31.60" meanSpeed="12.69" meanHaltsPerVehicle="0.00" meanTimeLoss="2.07" vehicleSum="1" meanSpeedWithin="10.57" meanHaltsPerVehicleWithin="0.35" meanDurationWithin="17.31" vehicleSumWithin="17" meanIntervalSpeedWithin="9.04" meanIntervalHaltsPerVehicleWithin="0.12" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.32"/>
+    <interval begin="49.00" end="50.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="33.22" speed="13.55" length="4.50" nVehEntered="1"/>
+    <interval begin="49.00" end="50.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="49.00" end="50.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="49.00" end="50.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.54" meanHaltsPerVehicleWithin="0.47" meanDurationWithin="18.31" vehicleSumWithin="17" meanIntervalSpeedWithin="8.73" meanIntervalHaltsPerVehicleWithin="0.12" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.37"/>
+    <interval begin="50.00" end="51.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="37.79" speed="11.91" length="4.50" nVehEntered="1"/>
+    <interval begin="50.00" end="51.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="50.00" end="51.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="50.00" end="51.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.36" meanHaltsPerVehicleWithin="0.61" meanDurationWithin="18.32" vehicleSumWithin="18" meanIntervalSpeedWithin="8.42" meanIntervalHaltsPerVehicleWithin="0.17" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.37"/>
+    <interval begin="51.00" end="52.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="51.00" end="52.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.75" speed="13.74" length="4.50" nVehEntered="1"/>
+    <interval begin="51.00" end="52.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="51.00" end="52.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="10.22" meanHaltsPerVehicleWithin="0.79" meanDurationWithin="18.39" vehicleSumWithin="19" meanIntervalSpeedWithin="8.28" meanIntervalHaltsPerVehicleWithin="0.21" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.38"/>
+    <interval begin="52.00" end="53.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="52.00" end="53.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="52.00" end="53.00" id="detector0" meanTravelTime="31.07" meanOverlapTravelTime="31.39" meanSpeed="12.76" meanHaltsPerVehicle="0.00" meanTimeLoss="1.91" vehicleSum="1" meanSpeedWithin="10.06" meanHaltsPerVehicleWithin="1.00" meanDurationWithin="18.66" vehicleSumWithin="18" meanIntervalSpeedWithin="8.21" meanIntervalHaltsPerVehicleWithin="0.17" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
+    <interval begin="53.00" end="54.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="37.48" speed="12.01" length="4.50" nVehEntered="1"/>
+    <interval begin="53.00" end="54.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="33.46" speed="13.45" length="4.50" nVehEntered="1"/>
+    <interval begin="53.00" end="54.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="53.00" end="54.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="53.00" end="54.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.95" meanHaltsPerVehicleWithin="1.00" meanDurationWithin="18.71" vehicleSumWithin="19" meanIntervalSpeedWithin="8.32" meanIntervalHaltsPerVehicleWithin="0.05" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.38"/>
+    <interval begin="54.00" end="55.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="54.00" end="55.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="54.00" end="55.00" id="detector0" meanTravelTime="36.13" meanOverlapTravelTime="36.46" meanSpeed="11.01" meanHaltsPerVehicle="0.00" meanTimeLoss="6.89" vehicleSum="1" meanSpeedWithin="9.89" meanHaltsPerVehicleWithin="1.17" meanDurationWithin="18.71" vehicleSumWithin="18" meanIntervalSpeedWithin="8.30" meanIntervalHaltsPerVehicleWithin="0.11" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.40"/>
+    <interval begin="55.00" end="56.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="38.93" speed="11.56" length="4.50" nVehEntered="1"/>
+    <interval begin="55.00" end="56.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="4.74" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="55.00" end="56.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="55.00" end="56.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.63" speed="13.79" length="4.50" nVehEntered="1"/>
+    <interval begin="55.00" end="56.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="55.00" end="56.00" id="detector0" meanTravelTime="30.86" meanOverlapTravelTime="31.19" meanSpeed="12.86" meanHaltsPerVehicle="0.00" meanTimeLoss="1.85" vehicleSum="1" meanSpeedWithin="9.61" meanHaltsPerVehicleWithin="1.33" meanDurationWithin="17.99" vehicleSumWithin="18" meanIntervalSpeedWithin="7.87" meanIntervalHaltsPerVehicleWithin="0.17" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
+    <interval begin="56.00" end="57.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="33.66" speed="11.72" length="4.50" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop5" nVehContrib="1" flow="3600.00" occupancy="35.13" speed="12.81" length="4.50" nVehEntered="1"/>
+    <interval begin="56.00" end="57.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="56.00" end="57.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="56.00" end="57.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.60" meanHaltsPerVehicleWithin="1.44" meanDurationWithin="18.99" vehicleSumWithin="18" meanIntervalSpeedWithin="7.83" meanIntervalHaltsPerVehicleWithin="0.11" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.44"/>
+    <interval begin="57.00" end="58.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="7.44" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="57.00" end="58.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="8.83" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="57.00" end="58.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="57.00" end="58.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="57.00" end="58.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.53" meanHaltsPerVehicleWithin="1.53" meanDurationWithin="19.03" vehicleSumWithin="19" meanIntervalSpeedWithin="7.84" meanIntervalHaltsPerVehicleWithin="0.16" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
+    <interval begin="58.00" end="59.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="29.14" speed="12.30" length="4.50" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop7" nVehContrib="1" flow="3600.00" occupancy="38.04" speed="11.83" length="4.50" nVehEntered="1"/>
+    <interval begin="58.00" end="59.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="24.41" speed="13.54" length="4.50" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="58.00" end="59.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="58.00" end="59.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.44" meanHaltsPerVehicleWithin="1.65" meanDurationWithin="19.10" vehicleSumWithin="20" meanIntervalSpeedWithin="7.89" meanIntervalHaltsPerVehicleWithin="0.20" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
+    <interval begin="59.00" end="60.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="59.00" end="60.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="59.00" end="60.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.44" meanHaltsPerVehicleWithin="1.90" meanDurationWithin="20.10" vehicleSumWithin="20" meanIntervalSpeedWithin="7.94" meanIntervalHaltsPerVehicleWithin="0.25" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.43"/>
+    <interval begin="60.00" end="61.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="37.56" speed="11.98" length="4.50" nVehEntered="1"/>
+    <interval begin="60.00" end="61.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="60.00" end="61.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="17.18" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="60.00" end="61.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="60.00" end="61.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.37" meanHaltsPerVehicleWithin="2.00" meanDurationWithin="20.16" vehicleSumWithin="21" meanIntervalSpeedWithin="8.04" meanIntervalHaltsPerVehicleWithin="0.19" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.40"/>
+    <interval begin="61.00" end="62.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="25.02" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="61.00" end="62.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="15.59" speed="13.73" length="4.50" nVehEntered="0"/>
+    <interval begin="61.00" end="62.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="61.00" end="62.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.38" meanHaltsPerVehicleWithin="2.14" meanDurationWithin="21.16" vehicleSumWithin="21" meanIntervalSpeedWithin="8.27" meanIntervalHaltsPerVehicleWithin="0.14" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.40"/>
+    <interval begin="62.00" end="63.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop3" nVehContrib="1" flow="3600.00" occupancy="11.21" speed="12.42" length="4.50" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop5" nVehContrib="1" flow="3600.00" occupancy="33.07" speed="13.61" length="4.50" nVehEntered="1"/>
+    <interval begin="62.00" end="63.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="7.82" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="62.00" end="63.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="62.00" end="63.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="62.00" end="63.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.34" meanHaltsPerVehicleWithin="2.18" meanDurationWithin="21.21" vehicleSumWithin="22" meanIntervalSpeedWithin="8.52" meanIntervalHaltsPerVehicleWithin="0.14" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.37"/>
+    <interval begin="63.00" end="64.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="39.34" speed="11.44" length="4.50" nVehEntered="1"/>
+    <interval begin="63.00" end="64.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="25.66" speed="13.44" length="4.50" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="63.00" end="64.00" id="loop11" nVehContrib="1" flow="3600.00" occupancy="32.41" speed="13.88" length="4.50" nVehEntered="1"/>
+   <interval begin="63.00" end="64.00" id="detector0" meanTravelTime="40.31" meanOverlapTravelTime="40.65" meanSpeed="9.87" meanHaltsPerVehicle="1.00" meanTimeLoss="11.06" vehicleSum="1" meanSpeedWithin="9.33" meanHaltsPerVehicleWithin="2.33" meanDurationWithin="21.28" vehicleSumWithin="21" meanIntervalSpeedWithin="8.43" meanIntervalHaltsPerVehicleWithin="0.10" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.39"/>
+    <interval begin="64.00" end="65.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="64.00" end="65.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="64.00" end="65.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.25" meanHaltsPerVehicleWithin="2.22" meanDurationWithin="20.48" vehicleSumWithin="23" meanIntervalSpeedWithin="8.48" meanIntervalHaltsPerVehicleWithin="0.09" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.35"/>
+    <interval begin="65.00" end="66.00" id="loop0" nVehContrib="1" flow="3600.00" occupancy="37.77" speed="11.91" length="4.50" nVehEntered="1"/>
+    <interval begin="65.00" end="66.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="33.87" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="65.00" end="66.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="65.00" end="66.00" id="loop10" nVehContrib="1" flow="3600.00" occupancy="32.78" speed="13.73" length="4.50" nVehEntered="1"/>
+    <interval begin="65.00" end="66.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="65.00" end="66.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.28" meanHaltsPerVehicleWithin="2.35" meanDurationWithin="21.48" vehicleSumWithin="23" meanIntervalSpeedWithin="8.59" meanIntervalHaltsPerVehicleWithin="0.13" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.38"/>
+    <interval begin="66.00" end="67.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop7" nVehContrib="1" flow="3600.00" occupancy="3.15" speed="12.16" length="4.50" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="66.00" end="67.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="66.00" end="67.00" id="detector0" meanTravelTime="39.79" meanOverlapTravelTime="40.12" meanSpeed="9.98" meanHaltsPerVehicle="0.00" meanTimeLoss="10.82" vehicleSum="1" meanSpeedWithin="9.21" meanHaltsPerVehicleWithin="2.48" meanDurationWithin="20.70" vehicleSumWithin="23" meanIntervalSpeedWithin="8.36" meanIntervalHaltsPerVehicleWithin="0.13" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.38"/>
+    <interval begin="67.00" end="68.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop2" nVehContrib="1" flow="3600.00" occupancy="37.26" speed="12.08" length="4.50" nVehEntered="1"/>
+    <interval begin="67.00" end="68.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop6" nVehContrib="1" flow="3600.00" occupancy="36.30" speed="12.40" length="4.50" nVehEntered="1"/>
+    <interval begin="67.00" end="68.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop8" nVehContrib="0" flow="0.00" occupancy="21.00" speed="-1.00" length="-1.00" nVehEntered="1"/>
+    <interval begin="67.00" end="68.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="67.00" end="68.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="67.00" end="68.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.23" meanHaltsPerVehicleWithin="2.65" meanDurationWithin="21.70" vehicleSumWithin="23" meanIntervalSpeedWithin="8.25" meanIntervalHaltsPerVehicleWithin="0.17" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
+    <interval begin="68.00" end="69.00" id="loop0" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop4" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop6" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop7" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop8" nVehContrib="1" flow="3600.00" occupancy="12.03" speed="13.62" length="4.50" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop9" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop10" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+    <interval begin="68.00" end="69.00" id="loop11" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="68.00" end="69.00" id="detector0" meanTravelTime="-1.00" meanOverlapTravelTime="-1.00" meanSpeed="-1.00" meanHaltsPerVehicle="-1.00" meanTimeLoss="-1.00" vehicleSum="0" meanSpeedWithin="9.23" meanHaltsPerVehicleWithin="2.87" meanDurationWithin="22.70" vehicleSumWithin="23" meanIntervalSpeedWithin="8.18" meanIntervalHaltsPerVehicleWithin="0.22" meanIntervalDurationWithin="1.00" meanTimeLossWithin="0.41"/>
 </detector>

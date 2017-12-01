@@ -1,3 +1,7 @@
+import sys
+sys.path.insert(0, "/Users/aum.jadhav/Documents/Programming/cmu_robostats/deeprl_driving_behaviors/gym-bstriner/")
+sys.path.insert(0, "/Users/aum.jadhav/Documents/Programming/cmu_robostats/deeprl_driving_behaviors/gym-traffic/")
+
 import gym
 import gym_traffic
 from gym.wrappers import Monitor
