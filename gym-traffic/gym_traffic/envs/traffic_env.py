@@ -35,9 +35,10 @@ class TrafficEnv(Env):
         self.lanes = lanes
         self.detector = detector
         args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile]
+        step_length = "0.1"
         if mode == "gui":
             binary = "sumo-gui"
-            args += ["-S", "-Q", "--gui-settings-file", guifile]
+            args += ["-S", "-Q", "--step-length", step_length, "--gui-settings-file", guifile]
         else:
             binary = "sumo"
             args += ["--no-step-log"]
@@ -118,7 +119,7 @@ class TrafficEnv(Env):
         assert (len(action) == len(self.lights))
         for act, light in zip(action, self.lights):
             signal = light.act(act)
-            traci.trafficlights.setRedYellowGreenState(light.id, signal)
+            # traci.trafficlights.setRedYellowGreenState(light.id, signal)
         traci.simulationStep()
         observation = self._observation()
         reward = self._reward()

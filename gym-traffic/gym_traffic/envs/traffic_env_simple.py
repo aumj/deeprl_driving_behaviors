@@ -15,16 +15,18 @@ class TrafficEnvSimple(TrafficEnv):
         addfile = os.path.join(basepath, "traffic.add.xml")
         exitloops = ["loop4", "loop5", "loop6", "loop7"]
         super(TrafficEnvSimple, self).__init__(mode=mode, lights=lights, netfile=netfile, routefile=routefile,
-                                               guifile=guifile, loops=loops, addfile=addfile, simulation_end=300,
+                                               guifile=guifile, loops=loops, addfile=addfile, simulation_end=3000,
                                                lanes=lanes, exitloops=exitloops)
 
     def route_sample(self):
-        if self.np_random.uniform(0, 1) > 0.5:
-            ew = 0.01
-            ns = 0.05
-        else:
-            ns = 0.01
-            ew = 0.05
+        # if self.np_random.uniform(0, 1) > 0.5:
+        ew = 0.25
+        we = 0.15
+        ns = 0.10
+        sn = 0.00001
+        wn = 0.05
+        en = 0.05
+
         return {"ns": ns,
                 "sn": ns,
                 "ew": ew,
