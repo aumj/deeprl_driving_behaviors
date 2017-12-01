@@ -1,7 +1,12 @@
+import sys
+sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-bstriner")
+sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-traffic")
+
 import gym
 import gym_traffic
 from gym.wrappers import Monitor
 import time
+
 env = gym.make('Traffic-Simple-gui-v0')
 from tqdm import tqdm
 monitor = False
@@ -18,6 +23,7 @@ for i_episode in tqdm(range(500)):
         # print "\n Action: {}".format(action)
         # time.sleep(1)
         observation, reward, done, info = env.step(action)
+        print observation
         # print "\n Reward: {}".format(reward)
         if done:
             print("Episode finished after {} timesteps".format(t+1))
