@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-bstriner")
-sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-traffic")
+sys.path.insert(0, "/mnt/c/Users/stran/OneDrive/16782Planning/deeprl_driving_behaviors/gym-bstriner")
+sys.path.insert(0, "/mnt/c/Users/stran/OneDrive/16782Planning/deeprl_driving_behaviors/gym-traffic")
 
 import gym
 import gym_traffic
