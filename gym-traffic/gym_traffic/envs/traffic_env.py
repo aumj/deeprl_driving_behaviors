@@ -226,14 +226,14 @@ class TrafficEnv(Env):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[100-y,x] = 1
 
-            plt.imsave('test.jpg', obstacle_image)
+            # plt.imsave('test.jpg', obstacle_image)
             # import IPython
             # IPython.embed()
-            plt.ion()
-            plt.imshow(obstacle_image)
-            plt.draw()
+            # plt.ion()
+            # plt.imshow(obstacle_image)
+            # plt.draw()
             # plt.show(block=False)
-            plt.show()
+            # plt.show()
             return (state,visible,obstacle_image)
 
         return (state,visible)
