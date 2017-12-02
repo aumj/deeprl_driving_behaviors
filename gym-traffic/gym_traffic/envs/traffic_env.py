@@ -55,6 +55,13 @@ class TrafficEnv(Env):
         self.action_space = spaces.Discrete(3)
         self.throttle_actions = {0: 0., 1: 1., 2:-1.}
 
+        self.ego_veh_vehID = 'ego_car'
+        self.ego_veh_routeID = 'route_sn'
+        self.ego_veh_typeID='EgoCar'
+        self.ego_veh_start_pos = 240 # intersection center is 251
+        self.ego_veh_goal_pos = 262 # intersection center is 251
+        self.ego_veh_start_speed = 0.
+
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
         #                           shape=(len(self.loops) * len(self.loop_variables),))
@@ -83,10 +90,13 @@ class TrafficEnv(Env):
             for loopid in self.loops:
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_step = 0
-            self.sumo_deltaT = traci.simulation.getDeltaT()/1000 # Simulation timestep in seconds
+            self.sumo_deltaT = traci.simulation.getDeltaT()/1000. # Simulation timestep in seconds
             self.sumo_running = True
-            traci.vehicle.add(vehID='ego_car', routeID='route_sn', pos = 0, speed = 1, typeID='EgoCar')
-            traci.vehicle.setSpeedMode(vehID='ego_car', sm=0) # All speed checks are off
+            for i in range(800):
+                traci.simulationStep()
+            traci.vehicle.add(vehID=self.ego_veh_vehID, routeID=self.ego_veh_routeID,
+                              pos=self.ego_veh_start_pos, speed=self.ego_veh_start_speed, typeID=self.ego_veh_typeID)
+            traci.vehicle.setSpeedMode(vehID=self.ego_veh_vehID, sm=0) # All speed checks are off
             # import IPython
             # IPython.embed()
             self.screenshot()
@@ -98,21 +108,10 @@ class TrafficEnv(Env):
 
     # TO DO: re-define reward function!!
     def _reward(self):
-        reward = -0.1
-        # for lane in self.lanes:
-        #    reward -= traci.lane.getWaitingTime(lane)
-        # return reward
-        # speed = traci.multientryexit.getLastStepMeanSpeed(self.detector)
-        # count = traci.multientryexit.getLastStepVehicleNumber(self.detector)
-        # reward = speed * count
-        # print("Speed: {}".format(traci.multientryexit.getLastStepMeanSpeed(self.detector)))
-        # print("Count: {}".format(traci.multientryexit.getLastStepVehicleNumber(self.detector)))
-        # reward = np.sqrt(speed)
-        # print "Reward: {}".format(reward)
-        # return speed
-        # reward = 0.0
-        # for loop in self.exitloops:
-        #    reward += traci.inductionloop.getLastStepVehicleNumber(loop)
+        if traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos:
+            reward = 1000
+        else:
+            reward = -0.1
         return reward
 
     def _step(self, action):
@@ -121,15 +120,18 @@ class TrafficEnv(Env):
         self.sumo_step += 1
 
         # print "action = ", self.throttle_actions[action]
-        new_speed = traci.vehicle.getSpeed('ego_car') + self.sumo_deltaT * self.throttle_actions[action]
-        traci.vehicle.setSpeed('ego_car', new_speed)
+        new_speed = traci.vehicle.getSpeed(self.ego_veh_vehID) + self.sumo_deltaT * self.throttle_actions[action]
+        traci.vehicle.setSpeed(self.ego_veh_vehID, new_speed)
 
-        print("Step = ", self.sumo_step, "   | action = ", action, "   | car speed = ", traci.vehicle.getSpeed('ego_car'))
+        print("Step = ", self.sumo_step, "   | action = ", action)
+        print("car speed = ", traci.vehicle.getSpeed(self.ego_veh_vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
         observation = self._observation()
         reward = self._reward()
-        done = self.sumo_step > self.simulation_end or ('ego_car' not in traci.vehicle.getIDList())
+        done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
+               or (self.sumo_step > self.simulation_end) \
+               or (self.ego_veh_vehID not in traci.vehicle.getIDList())
         self.screenshot()
         if done:
             self.stop_sumo()
@@ -143,8 +145,8 @@ class TrafficEnv(Env):
         state = []
         visible = []
         ego_car_in_scene=False
-        if 'ego_car' in traci.vehicle.getIDList():
-            ego_car_pos = traci.vehicle.getPosition('ego_car')
+        if self.ego_veh_vehID in traci.vehicle.getIDList():
+            ego_car_pos = traci.vehicle.getPosition(self.ego_veh_vehID)
             ego_car_in_scene = True
         for i in traci.vehicle.getIDList():
             speed = traci.vehicle.getSpeed(i)
@@ -154,7 +156,7 @@ class TrafficEnv(Env):
             state_tuple = (i,pos[0], pos[1], angle, speed, laneid)
             state.append(state_tuple)
             if ego_car_in_scene:
-                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<50) and i not in 'ego_car':
+                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<50) and i not in self.ego_veh_vehID:
                     visible.append(state_tuple)
 
         def location2bounds(x, y, orientation):
@@ -236,6 +238,7 @@ class TrafficEnv(Env):
             # plt.show()
             return (state,visible,obstacle_image)
 
+        #TODO: Always return just a obstacle_image, possibly with ego_vehicle in separate channel
         return (state,visible)
 
     def _reset(self):
