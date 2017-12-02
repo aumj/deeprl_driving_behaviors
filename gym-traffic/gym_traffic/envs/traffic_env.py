@@ -157,7 +157,7 @@ class TrafficEnv(Env):
                 if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<50) and i not in 'ego_car':
                     visible.append(state_tuple)
 
-        def location2bounds(x, y, orientation):        
+        def location2bounds(x, y, orientation):
             bound = 101
             car_length = 5 # meters
             car_width = 1.8 # meters
@@ -176,7 +176,7 @@ class TrafficEnv(Env):
                 car_c_bound_x_2 = x+(car_length/2.0)
                 car_c_bound_y_1 = y-(car_width/2.0)
                 car_c_bound_y_2 = y+(car_width/2.0)
-            
+
             # discrete bounds
             car_d_bound_x_1 = np.floor(car_c_bound_x_1)+np.floor(bound/2.0)
             car_d_bound_x_2 = np.floor(car_c_bound_x_2)+np.floor(bound/2.0)
@@ -213,7 +213,7 @@ class TrafficEnv(Env):
                     obstacle_image[100-y,x] = 1
 
             for other_car in visible:
-                #if vertical    
+                #if vertical
                 if (other_car[5] == 'route_ns') or (other_car[5] == 'route_sn'):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], 'vertical')
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
@@ -226,14 +226,14 @@ class TrafficEnv(Env):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[100-y,x] = 1
 
-            # imsave('test.jpg', obstacle_image)
+            plt.imsave('test.jpg', obstacle_image)
             # import IPython
             # IPython.embed()
             plt.ion()
             plt.imshow(obstacle_image)
             plt.draw()
             # plt.show(block=False)
-            # plt.show()
+            plt.show()
             return (state,visible,obstacle_image)
 
         return (state,visible)
