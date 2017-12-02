@@ -49,13 +49,15 @@ class TrafficEnv(Env):
         self.sumo_cmd = [binary] + args
         self.sumo_step = 0
         self.lights = lights
-        self.action_space = spaces.DiscreteToMultiDiscrete(
-            spaces.MultiDiscrete([[0, len(light.actions) - 1] for light in self.lights]), 'all')
 
-        trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
-                                  shape=(len(self.loops) * len(self.loop_variables),))
-        lightspaces = [spaces.Discrete(len(light.actions)) for light in self.lights]
-        self.observation_space = spaces.Tuple([trafficspace] + lightspaces)
+        self.action_space = spaces.Discrete(3)
+        self.throttle_actions = {0: 0., 1: 1., 2:-1.}
+
+        # TO DO: re-define observation space !!
+        # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
+        #                           shape=(len(self.loops) * len(self.loop_variables),))
+        # lightspaces = [spaces.Discrete(len(light.actions)) for light in self.lights]
+        # self.observation_space = spaces.Tuple([trafficspace] + lightspaces)
 
         self.sumo_running = False
         self.viewer = None
@@ -79,11 +81,12 @@ class TrafficEnv(Env):
             for loopid in self.loops:
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_step = 0
+            self.sumo_deltaT = traci.simulation.getDeltaT()/1000 # Simulation timestep in seconds
             self.sumo_running = True
-            # To be changed
-            traci.vehicle.add('ego_car', 'route_ns', speed = 0.1)
-            traci.vehicle.setColor('ego_car', (0,255,0,0))
-            traci.vehicle.setAccel('ego_car',0.1)
+            traci.vehicle.add(vehID='ego_car', routeID='route_sn', pos = 0, speed = 1, typeID='EgoCar')
+            traci.vehicle.setSpeedMode(vehID='ego_car', sm=0) # All speed checks are off
+            # import IPython
+            # IPython.embed()
             self.screenshot()
 
     def stop_sumo(self):
@@ -91,14 +94,15 @@ class TrafficEnv(Env):
             traci.close()
             self.sumo_running = False
 
+    # TO DO: re-define reward function!!
     def _reward(self):
-        # reward = 0.0
+        reward = -0.1
         # for lane in self.lanes:
         #    reward -= traci.lane.getWaitingTime(lane)
         # return reward
-        speed = traci.multientryexit.getLastStepMeanSpeed(self.detector)
-        count = traci.multientryexit.getLastStepVehicleNumber(self.detector)
-        reward = speed * count
+        # speed = traci.multientryexit.getLastStepMeanSpeed(self.detector)
+        # count = traci.multientryexit.getLastStepVehicleNumber(self.detector)
+        # reward = speed * count
         # print("Speed: {}".format(traci.multientryexit.getLastStepMeanSpeed(self.detector)))
         # print("Count: {}".format(traci.multientryexit.getLastStepVehicleNumber(self.detector)))
         # reward = np.sqrt(speed)
@@ -107,16 +111,19 @@ class TrafficEnv(Env):
         # reward = 0.0
         # for loop in self.exitloops:
         #    reward += traci.inductionloop.getLastStepVehicleNumber(loop)
-        return max(reward, 0)
+        return reward
 
     def _step(self, action):
-        action = self.action_space(action)
+        # action = self.action_space(action)
         self.start_sumo()
         self.sumo_step += 1
-        assert (len(action) == len(self.lights))
-        for act, light in zip(action, self.lights):
-            signal = light.act(act)
-            traci.trafficlights.setRedYellowGreenState(light.id, signal)
+
+        # print "action = ", self.throttle_actions[action]
+        new_speed = traci.vehicle.getSpeed('ego_car') + self.sumo_deltaT * self.throttle_actions[action]
+        traci.vehicle.setSpeed('ego_car', new_speed)
+
+        print("Step = ", self.sumo_step, "   | action = ", action, "   | car speed = ", traci.vehicle.getSpeed('ego_car'))
+
         traci.simulationStep()
         observation = self._observation()
         reward = self._reward()
@@ -131,14 +138,6 @@ class TrafficEnv(Env):
             traci.gui.screenshot("View #0", self.pngfile)
 
     def _observation(self):
-        # res = traci.inductionloop.getSubscriptionResults()
-        # obs = []
-        # for loop in self.loops:
-        #     for var in self.loop_variables:
-        #         obs.append(res[loop][var])
-        # trafficobs = np.array(obs)
-        # lightobs = [light.state for light in self.lights]
-        # return (trafficobs, lightobs)
         state = []
         visible = []
         ego_car_in_scene=False
