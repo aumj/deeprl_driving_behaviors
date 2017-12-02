@@ -1,6 +1,8 @@
 import sys
-sys.path.insert(0, "/Users/aum.jadhav/Documents/Programming/cmu_robostats/deeprl_driving_behaviors/gym-bstriner/")
-sys.path.insert(0, "/Users/aum.jadhav/Documents/Programming/cmu_robostats/deeprl_driving_behaviors/gym-traffic/")
+import os
+repo_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(repo_path, 'gym-bstriner'))
+sys.path.insert(0, os.path.join(repo_path, 'gym-traffic'))
 
 import gym
 import gym_traffic
@@ -10,6 +12,11 @@ env = gym.make('Traffic-Simple-gui-v0')
 from tqdm import tqdm
 monitor = False
 # env = gym.make('Traffic-Simple-cli-v0')
+
+#TODO: Change simulation step size
+#TODO: Add more traffic flows
+#TODO: Scene image generation
+
 if monitor:
     env = Monitor(env, "output/traffic/simple/random", force=True)
 for i_episode in tqdm(range(500)):
@@ -22,7 +29,10 @@ for i_episode in tqdm(range(500)):
         # print "\n Action: {}".format(action)
         # time.sleep(1)
         observation, reward, done, info = env.step(action)
-        # print "\n Reward: {}".format(reward)
+        print "---------------- Observations ----------------"
+        print observation
+        print "------------------------------------------------"
+        print "\n Reward: {}".format(reward)
         if done:
             print("Episode finished after {} timesteps".format(t+1))
             break
