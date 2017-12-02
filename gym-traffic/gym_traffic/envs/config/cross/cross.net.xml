@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
 <!-- generated on Sun 26 Nov 2017 10:22:28 PM EST by Netedit Version 0.30.0
-=======
-<!-- generated on Fri 01 Dec 2017 03:51:10 PM EST by Netedit Version 0.30.0
->>>>>>> 0b9fd1b... Decreased time step size with delay = 0
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-<<<<<<< HEAD
-        <sumo-net-file value="/home/andy/Dropbox/School%2017-18/F17_Planning%20and%20Decision-Making/project/deeprl_driving_behaviors/gym-traffic/gym_traffic/envs/config/cross/cross.net.xml"/>
-    </input>
-
-    <output>
-        <output-file value="/home/andy/Dropbox/School%2017-18/F17_Planning%20and%20Decision-Making/project/deeprl_driving_behaviors/gym-traffic/gym_traffic/envs/config/cross/cross.net.xml"/>
-=======
         <sumo-net-file value="/home/zihaoz/Desktop/deeprl_driving_behaviors/gym-traffic/gym_traffic/envs/config/cross/cross.net.xml"/>
     </input>
 
     <output>
         <output-file value="/home/zihaoz/Desktop/deeprl_driving_behaviors/gym-traffic/gym_traffic/envs/config/cross/cross.net.xml"/>
->>>>>>> 0b9fd1b... Decreased time step size with delay = 0
     </output>
 
     <processing>
