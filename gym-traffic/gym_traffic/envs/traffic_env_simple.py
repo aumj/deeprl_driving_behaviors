@@ -23,8 +23,8 @@ class TrafficEnvSimple(TrafficEnv):
         # addfile = os.path.join(basepath, "traffic.add.xml")
         exitloops = ["loop4", "loop5", "loop6", "loop7"]
         super(TrafficEnvSimple, self).__init__(mode=mode, lights=lights, netfile=netfile, routefile=routefile,
-                                               guifile=guifile, loops=loops, addfile=addfile, simulation_end=300,
-                                               lanes=lanes, exitloops=exitloops)
+                                               guifile=guifile, loops=loops, addfile=addfile, step_length="0.1",
+                                               simulation_end=3000, lanes=lanes, exitloops=exitloops)
 
     def route_sample(self):
         # if self.np_random.uniform(0, 1) > 0.5:

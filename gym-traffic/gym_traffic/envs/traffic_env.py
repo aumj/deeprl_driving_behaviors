@@ -25,7 +25,7 @@ class TrafficEnv(Env):
 
     def __init__(self, lights, netfile, routefile, guifile, addfile, loops=[], lanes=[], exitloops=[],
                  tmpfile="tmp.rou.xml",
-                 pngfile="tmp.png", mode="gui", detector="detector0", simulation_end=3600, sleep_between_restart=1):
+                 pngfile="tmp.png", mode="gui", detector="detector0", step_length = "0.1",  simulation_end=3600, sleep_between_restart=1):
         # "--end", str(simulation_end),
         self.simulation_end = simulation_end
         self.sleep_between_restart = sleep_between_restart
@@ -36,7 +36,7 @@ class TrafficEnv(Env):
         self.loop_variables = [tc.LAST_STEP_MEAN_SPEED, tc.LAST_STEP_TIME_SINCE_DETECTION, tc.LAST_STEP_VEHICLE_NUMBER]
         self.lanes = lanes
         self.detector = detector
-        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile]
+        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length]
         if mode == "gui":
             binary = "sumo-gui"
             args += ["-S", "-Q", "--gui-settings-file", guifile]
