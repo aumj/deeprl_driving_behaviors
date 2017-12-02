@@ -80,6 +80,10 @@ class TrafficEnv(Env):
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_step = 0
             self.sumo_running = True
+            # To be changed
+            traci.vehicle.add('ego_car', 'route_ns', speed = 0.1)
+            traci.vehicle.setColor('ego_car', (0,255,0,0))
+            traci.vehicle.setAccel('ego_car',0.1)
             self.screenshot()
 
     def stop_sumo(self):
@@ -136,6 +140,11 @@ class TrafficEnv(Env):
         # lightobs = [light.state for light in self.lights]
         # return (trafficobs, lightobs)
         state = []
+        visible = []
+        ego_car_in_scene=False
+        if 'ego_car' in traci.vehicle.getIDList():
+            ego_car_pos = traci.vehicle.getPosition('ego_car')
+            ego_car_in_scene = True
         for i in traci.vehicle.getIDList():
             speed = traci.vehicle.getSpeed(i)
             pos = traci.vehicle.getPosition(i)
@@ -143,7 +152,9 @@ class TrafficEnv(Env):
             laneid = traci.vehicle.getRouteID(i)
             state_tuple = (i,pos[0], pos[1], angle, speed, laneid)
             state.append(state_tuple)
-        return state
+            if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<50) and i not in 'ego_car' and ego_car_in_scene:
+                visible.append(state_tuple)
+        return (state,visible)
 
     def _reset(self):
         self.stop_sumo()
