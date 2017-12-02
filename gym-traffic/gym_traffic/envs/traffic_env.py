@@ -24,8 +24,8 @@ class TrafficEnv(Env):
     metadata = {'render.modes': ['human', 'rgb_array']}
 
     def __init__(self, lights, netfile, routefile, guifile, addfile, loops=[], lanes=[], exitloops=[],
-                 tmpfile="tmp.rou.xml",
-                 pngfile="tmp.png", mode="gui", detector="detector0", step_length = "0.1",  simulation_end=3600, sleep_between_restart=1):
+                 tmpfile="tmp.rou.xml", pngfile="tmp.png", mode="gui", detector="detector0",
+                 step_length = "0.1",  simulation_end=3600, sleep_between_restart=1):
         # "--end", str(simulation_end),
         self.simulation_end = simulation_end
         self.sleep_between_restart = sleep_between_restart
@@ -115,11 +115,9 @@ class TrafficEnv(Env):
         return reward
 
     def _step(self, action):
-        # action = self.action_space(action)
         self.start_sumo()
         self.sumo_step += 1
 
-        # print "action = ", self.throttle_actions[action]
         new_speed = traci.vehicle.getSpeed(self.ego_veh_vehID) + self.sumo_deltaT * self.throttle_actions[action]
         traci.vehicle.setSpeed(self.ego_veh_vehID, new_speed)
 
@@ -132,7 +130,7 @@ class TrafficEnv(Env):
         done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
                or (self.sumo_step > self.simulation_end) \
                or (self.ego_veh_vehID not in traci.vehicle.getIDList())
-        self.screenshot()
+        # self.screenshot()
         if done:
             self.stop_sumo()
         return observation, reward, done, self.route_info
@@ -204,10 +202,10 @@ class TrafficEnv(Env):
 
             return (car_d_bound_x_1, car_d_bound_x_2, car_d_bound_y_1, car_d_bound_y_2)
 
-        if ego_car_in_scene:
-            bound = 101
-            obstacle_image = np.zeros((bound,bound)) # 1 meter descretization image
 
+        bound = 101
+        obstacle_image = np.zeros((bound,bound)) # 1 meter descretization image
+        if ego_car_in_scene:
             # insert ego car
             car_bounds = location2bounds(0.0, 0.0, 'vertical')
             for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
@@ -228,18 +226,17 @@ class TrafficEnv(Env):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[100-y,x] = 1
 
-            # plt.imsave('test.jpg', obstacle_image)
-            # import IPython
-            # IPython.embed()
-            # plt.ion()
-            # plt.imshow(obstacle_image)
-            # plt.draw()
-            # plt.show(block=False)
-            # plt.show()
-            return (state,visible,obstacle_image)
+        # plt.imsave('test.jpg', obstacle_image)
+        # import IPython
+        # IPython.embed()
+        # plt.ion()
+        # plt.imshow(obstacle_image)
+        # plt.draw()
+        # plt.show(block=False)
+        # plt.show()
 
         #TODO: Always return just a obstacle_image, possibly with ego_vehicle in separate channel
-        return (state,visible)
+        return (state, visible, obstacle_image)
 
     def _reset(self):
         self.stop_sumo()

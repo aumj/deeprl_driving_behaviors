@@ -22,9 +22,9 @@ class TrafficEnvSimple(TrafficEnv):
     def route_sample(self):
         # if self.np_random.uniform(0, 1) > 0.5:
         ew = 0.25
-        we = 0.15
-        ns = 0.535
-        sn = 0.000001
+        we = 0.35
+        ns = 0.35
+        sn = 0.01
         return {"ns": ns,
                 "sn": sn,
                 "ew": ew,
