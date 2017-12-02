@@ -234,6 +234,7 @@ class TrafficEnv(Env):
             plt.draw()
             # plt.show(block=False)
             # plt.show()
+            return (state,visible,obstacle_image)
 
         return (state,visible)
 
