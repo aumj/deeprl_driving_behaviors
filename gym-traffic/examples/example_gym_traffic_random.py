@@ -1,6 +1,9 @@
+import os
 import sys
-sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-bstriner")
-sys.path.insert(0, "/home/mrsd/planning_proj/deeprl_driving_behaviors/gym-traffic")
+repo_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(repo_path, 'gym-bstriner'))
+sys.path.insert(0, os.path.join(repo_path, 'gym-traffic'))
+
 
 import gym
 import gym_traffic

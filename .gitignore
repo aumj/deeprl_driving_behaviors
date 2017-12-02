@@ -107,3 +107,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/gym-traffic/gym_traffic/envs/config/cross/out.xml
