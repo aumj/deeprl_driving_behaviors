@@ -140,29 +140,29 @@ class DRQN(Agent):
         
 
 
-    def observe(self, observation):
-        observation = concat_input(observation, self.input_space)
-        self.memory = self.memory[1:] + [observation]
-        self.last_observation = self.observation
-        self.observation = np.hstack(self.memory)
+    # def observe(self, observation):
+    #     observation = concat_input(observation, self.input_space)
+    #     self.memory = self.memory[1:] + [observation]
+    #     self.last_observation = self.observation
+    #     self.observation = np.hstack(self.memory)
 
-    def act(self): ## take the observation and run through the graph to predict the action
-        action = self.predict
-        return action
+    # def act(self): ## take the observation and run through the graph to predict the action
+    #     action = self.predict
+    #     return action
 
-    def combined_replay(self):
-        return [np.vstack(x[i] for x in self.replay) for i in range(5)]
+    # def combined_replay(self):
+    #     return [np.vstack(x[i] for x in self.replay) for i in range(5)]
 
-    def learn(self, action, reward, done):
-        datum = [self.last_observation, action, self.observation, [[1]] if done else [[0]], reward]
-        self.replay.append(datum)
-        if len(self.replay) > self.replay_size:
-            self.replay.pop(0)
-        # shuffle(self.replay)
-        data = self.combined_replay()
-        loss = self.training_model.train_on_batch(data[0:4], data[4])
+    # def learn(self, action, reward, done):
+    #     datum = [self.last_observation, action, self.observation, [[1]] if done else [[0]], reward]
+    #     self.replay.append(datum)
+    #     if len(self.replay) > self.replay_size:
+    #         self.replay.pop(0)
+    #     # shuffle(self.replay)
+    #     data = self.combined_replay()
+    #     loss = self.training_model.train_on_batch(data[0:4], data[4])
 
-        return loss
+    #     return loss
 
     def save(self, filepath):
         dirpath = os.path.dirname(filepath)

@@ -5,7 +5,8 @@
 from gym_traffic.agents import DQN, EpsilonExplorer
 from gym_traffic.runners import SimpleRunner
 import gym
-from gym_traffic.runners.agent_runner import run_agent
+# from gym_traffic.runners.agent_runner import run_agent
+from gym_traffic.runners.drqn_runner import run_training
 import sys
 import argparse
 
@@ -14,17 +15,18 @@ def build_agent(env):
 
 def example(gui):
     train_env = gym.make('Traffic-Simple-cli-v0')
-    agent = build_agent(train_env)  ## just initialize a DRQN object here - this builds the network as well
+    main_agent = build_agent(train_env)  ## just initialize a DRQN object here - this builds the network as well
+    # target_agent = build_agent(train_env)
     path = "output/traffic/simple/dqn"
-    explorer = EpsilonExplorer(agent, epsilon=0.5, decay=5e-7)  ## we do need this ? helps us trade off between 
+    # explorer = EpsilonExplorer(agent, epsilon=0.5, decay=5e-7)  ## we do need this ? helps us trade off between 
     ## exploration and exploitation? need this? (only difference in act function)
 
-    if gui:
-        def test_env_func():
-            return gym.make('Traffic-Simple-gui-v0')
-    else:
-        def test_env_func():
-            return train_env
+    # if gui:
+    #     def test_env_func():
+    #         return gym.make('Traffic-Simple-gui-v0')
+    # else:
+    #     def test_env_func():
+    #         return train_env
 
     ## TRAINING
     runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the 
@@ -35,13 +37,14 @@ def example(gui):
     ## with all double DQN, etc., targetQN, etc.
     ## add info everywhere, see if it will cause any problems
 
+    # def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True)
+    runner.run(train_env, nb_epoch = 100, nb_episodes = 500, render=True, verbose=True, train=True)
 
 
 
-
-    video_callable = None if gui else False
-    run_agent(runner=runner, agent=explorer, test_agent=explorer, train_env=train_env, test_env_func=test_env_func,
-              nb_episodes=500, test_nb_episodes=10, nb_epoch=100, path=path, video_callable=video_callable)
+    # video_callable = None if gui else False
+    # run_agent(runner=runner, agent=explorer, test_agent=explorer, train_env=train_env, test_env_func=test_env_func,
+    #           nb_episodes=500, test_nb_episodes=10, nb_epoch=100, path=path, video_callable=video_callable)
 
 
 def main(argv):

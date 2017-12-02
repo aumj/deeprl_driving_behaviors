@@ -21,8 +21,8 @@ import pandas as pd
 #     df.to_csv("{}-test.csv".format(path),index_label="episode")
 
 
-def run_agent(runner, agent, test_agent, train_env, test_env_func, nb_epoch, nb_episodes, path, video_callable=None,
-              test_nb_episodes=10):
+# def run_agent(runner, agent, test_agent, train_env, test_env_func, nb_epoch, nb_episodes, path, video_callable=None,
+#               test_nb_episodes=10):
     # for epoch in tqdm(range(nb_epoch), desc="Training"):
         # print("Epoch: {}".format(epoch))
         # test_env = test_env_func()
