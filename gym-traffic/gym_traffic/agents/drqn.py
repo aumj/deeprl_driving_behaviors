@@ -53,27 +53,27 @@ class DRQN(Agent):
                  optimizer=None):
         super(DQN, self).__init__(input_space, action_space, seed=seed)
         self.input_dim = calc_input_dim(input_space)
-        self.memory_size = memory_size
-        self.replay_size = replay_size
-        self.discount = K.variable(K.cast_to_floatx(discount))
+        # self.memory_size = memory_size
+        # self.replay_size = replay_size
+        # self.discount = K.variable(K.cast_to_floatx(discount))
         self.h_size = h_size
         self.rnn_cell = rnn_cell
-        self.step = 0
+        # self.step = 0
         self.data_dim = self.input_dim * self.memory_size
-        self.replay = []
-        self.new_episode()
-        if optimizer is None:
-            optimizer = Adam(1e-4, decay=1e-6)
-        self.optimizer = optimizer
+        # self.replay = []
+        # self.new_episode()
+        # if optimizer is None:
+        #     optimizer = Adam(1e-4, decay=1e-6)
+        # self.optimizer = optimizer
         if not isinstance(action_space, spaces.Discrete):
             raise NotImplementedError("Only Discrete action spaces supported")
         self.build_network()
 
 
-    def new_episode(self):
-        self.memory = [np.zeros((1, self.input_dim)) for i in range(self.memory_size)]
-        self.observation = None
-        self.last_observation = None
+    # def new_episode(self):
+    #     self.memory = [np.zeros((1, self.input_dim)) for i in range(self.memory_size)]
+    #     self.observation = None
+    #     self.last_observation = None
 
     def build_network(self):
         self.ImageIn = tf.placeholder(shape = self.data_dim, dtype = tf.float32)
