@@ -31,10 +31,10 @@ for i_episode in tqdm(range(500)):
         # print "\n Action: {}".format(action)
         # time.sleep(1)
         observation, reward, done, info = env.step(action)
-        print "---------------- Observations ----------------"
-        print observation
-        print "------------------------------------------------"
+        # print "---------------- Observations ----------------"
+        # print observation
         print "\n Reward: {}".format(reward)
+        print "------------------------------------------------"
         if done:
             print("Episode finished after {} timesteps".format(t+1))
             break
