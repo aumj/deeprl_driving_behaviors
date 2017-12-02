@@ -38,7 +38,7 @@ class TrafficEnv(Env):
         step_length = "0.1"
         if mode == "gui":
             binary = "sumo-gui"
-            args += ["-S", "-Q", "--step-length", step_length, "--gui-settings-file", guifile]
+            args += ["-S", "-Q", "--step-length", step_length, "--gui-settings-file", guifile, "--collision.check-junctions", "--collision.action", "remove"]
         else:
             binary = "sumo"
             args += ["--no-step-log"]
