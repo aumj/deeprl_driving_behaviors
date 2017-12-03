@@ -56,7 +56,9 @@ def example(gui):
     #           nb_episodes=500, test_nb_episodes=10, nb_epoch=100, path=path, video_callable=video_callable)
 
 
-def main(argv):
+def main():
+    operation = sys.argv[1]
+    
     parser = argparse.ArgumentParser(description='Example DQN implementation of traffic light control.')
     parser.add_argument('-G', '--gui', action="store_true",
                         help='run GUI mode during testing to render videos')
@@ -66,4 +68,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
