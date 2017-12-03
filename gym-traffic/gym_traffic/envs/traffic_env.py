@@ -106,6 +106,23 @@ class TrafficEnv(Env):
             traci.close()
             self.sumo_running = False
 
+    def check_collision(self):
+        warning = False
+        min_dist = 100.00
+
+    	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh_vehID))
+    	for i in traci.vehicle.getIDList(): 
+    		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
+    		if i != self.ego_veh_vehID and i.find('flow_n_s') == -1:
+    			pos = np.array(traci.vehicle.getPosition(i))
+    			new_dist = np.linalg.norm(ego_pos - pos)
+    			if new_dist < min_dist: 
+    				min_dist = new_dist
+
+    	# mark "warning" as True when cars get too close OR the actual collision takes place 
+    	if min_dist < 3.0: warning = True
+        return (warning, min_dist)
+
     # TO DO: re-define reward function!!
     def _reward(self):
         if traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos:
@@ -127,9 +144,12 @@ class TrafficEnv(Env):
         traci.simulationStep()
         observation = self._observation()
         reward = self._reward()
+        
+        print self.check_collision()
+
         done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
                or (self.sumo_step > self.simulation_end) \
-               or (self.ego_veh_vehID not in traci.vehicle.getIDList())
+               or (self.ego_veh_vehID not in traci.vehicle.getIDList()) 
         # self.screenshot()
         if done:
             self.stop_sumo()
