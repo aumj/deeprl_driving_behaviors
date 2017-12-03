@@ -42,10 +42,10 @@ class DRQNTester(object):
 
   def run_testing(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True):
     tf.reset_default_graph()
-    cell = tf.contrib.rnn.BasicLSTMCell(num_units=h_size,state_is_tuple=True)
-    cellT = tf.contrib.rnn.BasicLSTMCell(num_units=h_size,state_is_tuple=True)
-    mainQN = Qnetwork(h_size,cell,'main')
-    targetQN = Qnetwork(h_size,cellT,'target')
+    cell = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
+    cellT = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
+    mainQN = DRQN(self.h_size, cell, 'main')
+    targetQN = DRQN(self.h_size, cellT, 'target')
 
     init = tf.global_variables_initializer()
 
@@ -57,8 +57,8 @@ class DRQNTester(object):
     total_steps = 0
 
     #Make a path for our model to be saved in.
-    if not os.path.exists(path):
-        os.makedirs(path)
+    if not os.path.exists(self.path):
+        os.makedirs(self.path)
 
     ##Write the first line of the master log-file for the Control Center
     with open('./Center/log.csv', 'w') as myfile:
@@ -67,15 +67,15 @@ class DRQNTester(object):
         
         #wr = csv.writer(open('./Center/log.csv', 'a'), quoting=csv.QUOTE_ALL)
     with tf.Session() as sess:
-        if load_model == True:
+        if (self.load_model == True):
             print ('Loading Model...')
-            ckpt = tf.train.get_checkpoint_state(path)
+            ckpt = tf.train.get_checkpoint_state(self.path)
             saver.restore(sess,ckpt.model_checkpoint_path)
         else:
             sess.run(init)
 
             
-        for i in range(num_episodes):
+        for i in range(self.num_episodes):
             episodeBuffer = []
             #Reset environment and get first new observation
             sP = env.reset()
@@ -83,7 +83,7 @@ class DRQNTester(object):
             d = False
             rAll = 0
             j = 0
-            state = (np.zeros([1,h_size]),np.zeros([1,h_size]))
+            state = (np.zeros([1, self.h_size]),np.zeros([1, self.h_size]))
             #The Q-Network
             while j < max_epLength: #If the agent takes longer than 200 moves to reach either of the blocks, end the trial.
                 j+=1
@@ -117,5 +117,5 @@ class DRQNTester(object):
             if len(rList) % summaryLength == 0 and len(rList) != 0:
                 print (total_steps,np.mean(rList[-summaryLength:]), e)
                 saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer),[len(episodeBuffer),5]),\
-                    summaryLength,h_size,sess,mainQN,time_per_step)
-    print ("Percent of succesful episodes: " + str(sum(rList)/num_episodes) + "%")
+                    summaryLength, self.h_size, sess, mainQN, time_per_step)
+    print ("Percent of succesful episodes: " + str(sum(rList)/self.num_episodes) + "%")

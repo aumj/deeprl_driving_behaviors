@@ -189,7 +189,7 @@ class DRQNRunner(object):
         rList.append(rAll)
 
         #Periodically save the model. 
-        if i % 1000 == 0 and i != 0:
+        if i % 100 == 0 and i != 0:
             saver.save(sess,path+'/model-'+str(i)+'.cptk')
             print ("Saved Model")
         if len(rList) % self.summaryLength == 0 and len(rList) != 0:

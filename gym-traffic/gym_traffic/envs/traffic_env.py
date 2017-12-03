@@ -148,7 +148,7 @@ class TrafficEnv(Env):
         observation = self._observation()
         reward = self._reward()
 
-        print self.check_collision()
+        # print self.check_collision()
 
         done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
                or (self.sumo_step > self.simulation_end) \
