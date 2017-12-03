@@ -14,24 +14,17 @@ class TrafficEnvSimple(TrafficEnv):
         routefile = os.path.join(basepath, "cross.rou.xml")
         guifile = os.path.join(basepath, "view.settings.xml")
         addfile = os.path.join(basepath, "cross.add.xml")
-
-        # lights =  [TrafficLightTwoWay(id="0", yield_time=5)]
-        # basepath = os.path.join(os.path.dirname(__file__), "config", "simple")
-        # netfile = os.path.join(basepath, "traffic.net.xml")
-        # routefile = os.path.join(basepath, "traffic.rou.xml")
-        # guifile = os.path.join(basepath, "view.settings.xml")
-        # addfile = os.path.join(basepath, "traffic.add.xml")
         exitloops = ["loop4", "loop5", "loop6", "loop7"]
         super(TrafficEnvSimple, self).__init__(mode=mode, lights=lights, netfile=netfile, routefile=routefile,
-                                               guifile=guifile, loops=loops, addfile=addfile, simulation_end=300,
-                                               lanes=lanes, exitloops=exitloops)
+                                               guifile=guifile, loops=loops, addfile=addfile, step_length="0.1",
+                                               simulation_end=3000, lanes=lanes, exitloops=exitloops)
 
     def route_sample(self):
         # if self.np_random.uniform(0, 1) > 0.5:
         ew = 0.25
-        we = 0.15
-        ns = 0.535
-        sn = 0.000001
+        we = 0.35
+        ns = 0.35
+        sn = 0.01
         return {"ns": ns,
                 "sn": sn,
                 "ew": ew,
