@@ -121,8 +121,8 @@ class TrafficEnv(Env):
         new_speed = traci.vehicle.getSpeed(self.ego_veh_vehID) + self.sumo_deltaT * self.throttle_actions[action]
         traci.vehicle.setSpeed(self.ego_veh_vehID, new_speed)
 
-        print("Step = ", self.sumo_step, "   | action = ", action)
-        print("car speed = ", traci.vehicle.getSpeed(self.ego_veh_vehID), "   | new speed = ",new_speed)
+        # print("Step = ", self.sumo_step, "   | action = ", action)
+        # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh_vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
         observation = self._observation()

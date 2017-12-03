@@ -117,7 +117,8 @@ class DRQN():
 
         #The output from the recurrent player is then split into separate Value and Advantage streams
         self.streamA, self.streamV = tf.split(self.rnn, 2, 1)
-        self.AW = tf.Variable(tf.random_normal([self.h_size//2, 4]))
+        # self.AW = tf.Variable(tf.random_normal([self.h_size//2, 4]))
+        self.AW = tf.Variable(tf.random_normal([self.h_size//2, 3]))
         self.VW = tf.Variable(tf.random_normal([self.h_size//2, 1]))
         self.Advantage = tf.matmul(self.streamA, self.AW)
         self.Value = tf.matmul(self.streamV, self.VW)
@@ -130,7 +131,7 @@ class DRQN():
         #Below we obtain the loss by taking the sum of squares difference between the target and prediction Q values.
         self.targetQ = tf.placeholder(shape = [None], dtype = tf.float32)
         self.actions = tf.placeholder(shape = [None], dtype = tf.int32)
-        self.actions_onehot = tf.one_hot(self.actions, 4, dtype = tf.float32)
+        self.actions_onehot = tf.one_hot(self.actions, 3, dtype = tf.float32)
 
         self.Q = tf.reduce_sum(tf.multiply(self.Qout, self.actions_onehot), axis = 1)
 
