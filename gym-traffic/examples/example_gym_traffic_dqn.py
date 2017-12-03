@@ -1,6 +1,13 @@
 # import os
 # os.environ["THEANO_FLAGS"] = "mode=FAST_COMPILE,device=cpu,floatX=float32"
 
+import os
+import sys
+
+repo_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(repo_path, 'gym-bstriner'))
+sys.path.insert(0, os.path.join(repo_path, 'gym-traffic'))
+
 
 from gym_traffic.agents import DQN, EpsilonExplorer
 from gym_traffic.runners import SimpleRunner

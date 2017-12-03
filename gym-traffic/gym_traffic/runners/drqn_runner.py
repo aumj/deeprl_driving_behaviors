@@ -3,7 +3,7 @@ from tqdm import tqdm
 import tensorflow as tf
 import imageio
 imageio.plugins.ffmpeg.download()
-from utils import helper
+from gym_traffic.utils import helper
 
 class experience_buffer():
   def __init__(self, buffer_size = 1000):
@@ -48,7 +48,7 @@ class DRQNRunner(object):
     self.tau = 0.001
 
 
-  def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True):
+  def run_training(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True):
     tf.reset_default_graph()
 
     #We define the cells for the primary and target q-networks

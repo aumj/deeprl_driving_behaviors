@@ -15,51 +15,52 @@ import tensorflow.contrib.slim as slim
 import scipy.misc
 
 
-def flatten_spaces(space):
-    if isinstance(space, spaces.Tuple):
-        return list(itertools.chain.from_iterable(flatten_spaces(s) for s in space.spaces))
-    else:
-        return [space]
+# def flatten_spaces(space):
+#     if isinstance(space, spaces.Tuple):
+#         return list(itertools.chain.from_iterable(flatten_spaces(s) for s in space.spaces))
+#     else:
+#         return [space]
 
 
-def calc_input_dim(space):
-    dims = []
-    print "Space: {}".format(space)
-    print "Flattened: {}".format(flatten_spaces(space))
-    for i in flatten_spaces(space):
-        if isinstance(i, spaces.Discrete):
-            dims.append(i.n)
-        elif isinstance(i, spaces.Box):
-            dims.append(np.prod(i.shape))
-        else:
-            raise NotImplementedError("Only Discrete and Box input spaces currently supported")
-    return np.sum(dims)
+# def calc_input_dim(space):
+#     dims = []
+#     print "Space: {}".format(space)
+#     print "Flattened: {}".format(flatten_spaces(space))
+#     for i in flatten_spaces(space):
+#         if isinstance(i, spaces.Discrete):
+#             dims.append(i.n)
+#         elif isinstance(i, spaces.Box):
+#             dims.append(np.prod(i.shape))
+#         else:
+#             raise NotImplementedError("Only Discrete and Box input spaces currently supported")
+#     return np.sum(dims)
 
 
-def concat_input(observation, input_space):
-    if isinstance(input_space, spaces.Tuple):
-        return np.hstack([np.array(concat_input(obs, space)) for obs, space in
-                          zip(observation, input_space.spaces)])
-    elif isinstance(input_space, spaces.Discrete):
-        return to_categorical(observation, nb_classes=input_space.n).reshape((1, -1))
-    elif isinstance(input_space, spaces.Box):
-        return observation.reshape((1, -1))
-    else:
-        raise NotImplementedError("Only Discrete and Box input spaces currently supported")
+# def concat_input(observation, input_space):
+#     if isinstance(input_space, spaces.Tuple):
+#         return np.hstack([np.array(concat_input(obs, space)) for obs, space in
+#                           zip(observation, input_space.spaces)])
+#     elif isinstance(input_space, spaces.Discrete):
+#         return to_categorical(observation, nb_classes=input_space.n).reshape((1, -1))
+#     elif isinstance(input_space, spaces.Box):
+#         return observation.reshape((1, -1))
+#     else:
+#         raise NotImplementedError("Only Discrete and Box input spaces currently supported")
 
 
-class DRQN(Agent):
-    def __init__(self, input_space, action_space, memory_size=10, replay_size=64, discount=0.95, h_size, rnn_cell, seed=None,
-                 optimizer=None):
-        super(DQN, self).__init__(input_space, action_space, seed=seed)
-        self.input_dim = calc_input_dim(input_space)
+class DRQN():
+    def __init__(self, h_size, rnn_cell, myScope):
+        # super(DQN, self).__init__(input_space, action_space, seed=seed)
+        # self.input_dim = calc_input_dim(input_space)
         # self.memory_size = memory_size
         # self.replay_size = replay_size
         # self.discount = K.variable(K.cast_to_floatx(discount))
         self.h_size = h_size
         self.rnn_cell = rnn_cell
         # self.step = 0
-        self.data_dim = self.input_dim * self.memory_size
+        self.height = 84
+        self.width = 84
+        # self.data_dim = self.input_dim * self.memory_size
         # self.replay = []
         # self.new_episode()
         # if optimizer is None:
@@ -76,7 +77,7 @@ class DRQN(Agent):
     #     self.last_observation = None
 
     def build_network(self):
-        self.ImageIn = tf.placeholder(shape = self.data_dim, dtype = tf.float32)
+        self.ImageIn = tf.placeholder(shape = (self.height, self.width), dtype = tf.float32)
 
         self.conv1 = slim.convolution2d(inputs = self.ImageIn, num_outputs = 32, kernel_size = [8,8], stride = [4,4],
             padding = 'VALID', biases_initializer = None, scope = myScope + '_conv1')
@@ -164,11 +165,11 @@ class DRQN(Agent):
 
     #     return loss
 
-    def save(self, filepath):
-        dirpath = os.path.dirname(filepath)
-        if not os.path.exists(dirpath):
-            os.makedirs(dirpath)
-        self.Q.save_weights(filepath)
+    # def save(self, filepath):
+    #     dirpath = os.path.dirname(filepath)
+    #     if not os.path.exists(dirpath):
+    #         os.makedirs(dirpath)
+    #     self.Q.save_weights(filepath)
 
-    def load(self, filepath):
-        self.Q.load_weights(filepath)
+    # def load(self, filepath):
+    #     self.Q.load_weights(filepath)
