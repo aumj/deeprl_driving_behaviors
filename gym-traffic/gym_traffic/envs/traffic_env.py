@@ -154,11 +154,11 @@ class TrafficEnv(Env):
             state_tuple = (i,pos[0], pos[1], angle, speed, laneid)
             state.append(state_tuple)
             if ego_car_in_scene:
-                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<50) and i not in self.ego_veh_vehID:
+                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<42) and i not in self.ego_veh_vehID: #42 is 42 meters
                     visible.append(state_tuple)
 
         def location2bounds(x, y, orientation):
-            bound = 101
+            bound = 84
             car_length = 5 # meters
             car_width = 1.8 # meters
             # continuous bounds
@@ -203,28 +203,29 @@ class TrafficEnv(Env):
             return (car_d_bound_x_1, car_d_bound_x_2, car_d_bound_y_1, car_d_bound_y_2)
 
 
-        bound = 101
-        obstacle_image = np.zeros((bound,bound)) # 1 meter descretization image
+        bound = 84
+        obstacle_image = np.zeros((bound,bound,3)) # 1 meter descretization image
         if ego_car_in_scene:
             # insert ego car
             car_bounds = location2bounds(0.0, 0.0, 'vertical')
             for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                 for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                    obstacle_image[100-y,x] = 1
+                    obstacle_image[bound-1-y,x,0] = 1
 
+            #other cars
             for other_car in visible:
                 #if vertical
                 if (other_car[5] == 'route_ns') or (other_car[5] == 'route_sn'):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], 'vertical')
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[100-y,x] = 1
+                            obstacle_image[bound-1-y,x,2] = 1
                 #if horizontal
                 if (other_car[5] == 'route_ew') or (other_car[5] == 'route_we'):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], 'horizontal')
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[100-y,x] = 1
+                            obstacle_image[bound-1-y,x,2] = 1
 
         # plt.imsave('test.jpg', obstacle_image)
         # import IPython
