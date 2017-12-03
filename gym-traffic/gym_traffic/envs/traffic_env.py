@@ -237,7 +237,7 @@ class TrafficEnv(Env):
         # plt.show()
 
         #TODO: Always return just a obstacle_image, possibly with ego_vehicle in separate channel
-        return (state, visible, obstacle_image)
+        return obstacle_image
 
     def _reset(self):
         self.stop_sumo()

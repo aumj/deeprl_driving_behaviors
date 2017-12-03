@@ -60,7 +60,7 @@ class DRQN():
         # self.step = 0
         self.height = 84
         self.width = 84
-        self.batch_size = batch_size
+        # self.bs = batch_size
         # self.data_dim = self.input_dim * self.memory_size
         # self.replay = []
         # self.new_episode()
@@ -79,9 +79,13 @@ class DRQN():
     #     self.last_observation = None
 
     def build_network(self):
-        self.ImageIn = tf.placeholder(shape=(self.batch_size, self.height, self.width, 3), dtype = tf.float32)
+        # self.scalarInput =  tf.placeholder(shape=[None,21168],dtype=tf.float32)
+        
+        # self.imageIn = tf.reshape(self.scalarInput,shape=[-1,84,84,3])
+        
+        self.imageIn = tf.placeholder(shape=[None, self.height, self.width, 3], dtype = tf.float32)
 
-        self.conv1 = slim.convolution2d(inputs = self.ImageIn, num_outputs = 32, kernel_size = [8,8], stride = [4,4],
+        self.conv1 = slim.convolution2d(inputs = self.imageIn, num_outputs = 32, kernel_size = [8,8], stride = [4,4],
             padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv1')
 
         self.conv2 = slim.convolution2d(inputs = self.conv1, num_outputs = 64, kernel_size = [4,4], stride = [2,2],
@@ -101,12 +105,15 @@ class DRQN():
 
         self.batch_size = tf.placeholder(dtype = tf.int32, shape = [])
 
+
         self.convFlat = tf.reshape(slim.flatten(self.conv4), [self.batch_size, self.trainLength, self.h_size])
 
         self.state_in = self.rnn_cell.zero_state(self.batch_size, tf.float32)
 
         self.rnn, self.rnn_state = tf.nn.dynamic_rnn(inputs = self.convFlat, cell = self.rnn_cell, dtype = tf.float32,
             initial_state = self.state_in, scope = self.myScope + '_rnn')
+
+        self.rnn = tf.reshape(self.rnn,shape=[-1, self.h_size])
 
         #The output from the recurrent player is then split into separate Value and Advantage streams
         self.streamA, self.streamV = tf.split(self.rnn, 2, 1)
@@ -115,7 +122,7 @@ class DRQN():
         self.Advantage = tf.matmul(self.streamA, self.AW)
         self.Value = tf.matmul(self.streamV, self.VW)
 
-        self.salience = tf.gradients(self.Advantage, self.ImageIn)
+        self.salience = tf.gradients(self.Advantage, self.imageIn)
         #Then combine them together to get our final Q-values.
         self.Qout = self.Value + tf.subtract(self.Advantage, tf.reduce_mean(self.Advantage, axis = 1, keep_dims = True))
         self.predict = tf.argmax(self.Qout, 1)
