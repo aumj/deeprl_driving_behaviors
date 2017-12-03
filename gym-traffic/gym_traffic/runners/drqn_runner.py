@@ -4,6 +4,7 @@ import tensorflow as tf
 import imageio
 imageio.plugins.ffmpeg.download()
 from gym_traffic.utils import helper
+from gym_traffic.agents.drqn import DRQN
 
 class experience_buffer():
   def __init__(self, buffer_size = 1000):
@@ -54,8 +55,8 @@ class DRQNRunner(object):
     #We define the cells for the primary and target q-networks
     cell = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size,state_is_tuple = True)
     cellT = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size,state_is_tuple = True)
-    mainQN = DRQN(self.h_size, cell, 'main')
-    targetQN = DRQN(self.h_size, cellT, 'target')
+    mainQN = DRQN(self.h_size, self.batch_size, cell, 'main')
+    targetQN = DRQN(self.h_size, self.batch_size, cellT, 'target')
 
     init = tf.global_variables_initializer()
 

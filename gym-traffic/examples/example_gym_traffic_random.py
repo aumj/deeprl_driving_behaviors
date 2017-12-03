@@ -31,6 +31,7 @@ for i_episode in tqdm(range(500)):
         # print "\n Action: {}".format(action)
         # time.sleep(1)
         observation, reward, done, info = env.step(action)
+        # print (observation)
         # print "---------------- Observations ----------------"
         # print observation
         print "\n Reward: {}".format(reward)

@@ -49,7 +49,7 @@ import scipy.misc
 
 
 class DRQN():
-    def __init__(self, h_size, rnn_cell, myScope):
+    def __init__(self, h_size, batch_size, rnn_cell, myScope):
         # super(DQN, self).__init__(input_space, action_space, seed=seed)
         # self.input_dim = calc_input_dim(input_space)
         # self.memory_size = memory_size
@@ -60,14 +60,16 @@ class DRQN():
         # self.step = 0
         self.height = 84
         self.width = 84
+        self.batch_size = batch_size
         # self.data_dim = self.input_dim * self.memory_size
         # self.replay = []
         # self.new_episode()
         # if optimizer is None:
         #     optimizer = Adam(1e-4, decay=1e-6)
         # self.optimizer = optimizer
-        if not isinstance(action_space, spaces.Discrete):
-            raise NotImplementedError("Only Discrete action spaces supported")
+        # if not isinstance(action_space, spaces.Discrete):
+        #     raise NotImplementedError("Only Discrete action spaces supported")
+        self.myScope = myScope
         self.build_network()
 
 
@@ -77,19 +79,19 @@ class DRQN():
     #     self.last_observation = None
 
     def build_network(self):
-        self.ImageIn = tf.placeholder(shape = (self.height, self.width), dtype = tf.float32)
+        self.ImageIn = tf.placeholder(shape=(self.batch_size, self.height, self.width, 3), dtype = tf.float32)
 
         self.conv1 = slim.convolution2d(inputs = self.ImageIn, num_outputs = 32, kernel_size = [8,8], stride = [4,4],
-            padding = 'VALID', biases_initializer = None, scope = myScope + '_conv1')
+            padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv1')
 
         self.conv2 = slim.convolution2d(inputs = self.conv1, num_outputs = 64, kernel_size = [4,4], stride = [2,2],
-            padding = 'VALID', biases_initializer = None, scope = myScope + '_conv2')
+            padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv2')
 
         self.conv3 = slim.convolution2d(inputs = self.conv2, num_outputs = 64, kernel_size = [3,3], stride = [1,1],
-            padding = 'VALID', biases_initializer = None, scope = myScope + '_conv3')
+            padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv3')
 
         self.conv4 = slim.convolution2d(inputs = self.conv3, num_outputs = self.h_size, kernel_size = [7,7], stride = [1,1],
-            padding = 'VALID', biases_initializer = None, scope = myScope + '_conv4')
+            padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv4')
 
         self.trainLength = tf.placeholder(dtype = tf.int32)
 
@@ -104,12 +106,12 @@ class DRQN():
         self.state_in = self.rnn_cell.zero_state(self.batch_size, tf.float32)
 
         self.rnn, self.rnn_state = tf.nn.dynamic_rnn(inputs = self.convFlat, cell = self.rnn_cell, dtype = tf.float32,
-            initial_state = self.state_in, scope = myScope + '_rnn')
+            initial_state = self.state_in, scope = self.myScope + '_rnn')
 
         #The output from the recurrent player is then split into separate Value and Advantage streams
         self.streamA, self.streamV = tf.split(self.rnn, 2, 1)
-        self.AW = tf.Variable(tf.random_normal([h_size//2, 4]))
-        self.VW = tf.Variable(tf.random_normal([h_size//2, 1]))
+        self.AW = tf.Variable(tf.random_normal([self.h_size//2, 4]))
+        self.VW = tf.Variable(tf.random_normal([self.h_size//2, 1]))
         self.Advantage = tf.matmul(self.streamA, self.AW)
         self.Value = tf.matmul(self.streamV, self.VW)
 
