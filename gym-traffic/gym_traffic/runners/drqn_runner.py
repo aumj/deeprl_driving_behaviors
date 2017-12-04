@@ -8,7 +8,7 @@ from gym_traffic.agents.drqn import DRQN
 from IPython import embed
 
 class experience_buffer():
-  def __init__(self, buffer_size = 1000):
+  def __init__(self, buffer_size = 200):
     self.buffer = []
     self.buffer_size = buffer_size
   
@@ -16,6 +16,7 @@ class experience_buffer():
     if len(self.buffer) + 1 >= self.buffer_size:
       self.buffer[0:(1+len(self.buffer))-self.buffer_size] = []
     self.buffer.append(experience)
+    print ('buffer_size: ', len(self.buffer))
           
   def sample(self,batch_size,trace_length):
     # print ('np random sample: ', 'self.buffer: ', len(self.buffer), 'batch_size: ', batch_size)
@@ -31,7 +32,7 @@ class experience_buffer():
 
 class DRQNRunner(object):
 
-  def __init__(self, max_steps_per_episode = 1000):
+  def __init__(self, max_steps_per_episode = 200):
     # self.max_steps_per_episode=max_steps_per_episode
           #Setting the training parameters
     self.batch_size = 4 #How many experience traces to use for each training step.
@@ -52,7 +53,7 @@ class DRQNRunner(object):
     self.tau = 0.001
 
 
-  def run_training(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True):
+  def run_training(self, env):
     tf.reset_default_graph()
 
     #We define the cells for the primary and target q-networks
@@ -63,7 +64,7 @@ class DRQNRunner(object):
 
     init = tf.global_variables_initializer()
 
-    saver = tf.train.Saver(max_to_keep=5)
+    saver = tf.train.Saver(max_to_keep=10)
 
     trainables = tf.trainable_variables()
 
@@ -103,7 +104,7 @@ class DRQNRunner(object):
         # print ('-------------------', len(episodeBuffer), i, self.num_episodes)
         #Reset environment and get first new observation
         print ('Episode: ', i)
-        print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
+        # print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
         sP = env.reset()
         # s = processState(sP)
         s = sP
@@ -143,7 +144,7 @@ class DRQNRunner(object):
               e -= stepDrop
 
             if total_steps % (self.update_freq) == 0:
-              print ("------------- in --------------")
+              # print ("------------- in --------------")
               updateTarget(targetOps,sess)
               #Reset the recurrent layer's hidden state
               state_train = (np.zeros([self.batch_size, self.h_size]),np.zeros([self.batch_size, self.h_size])) 
@@ -182,14 +183,15 @@ class DRQNRunner(object):
         print ('steps taken: ', j)  
 
         #Add the episode to the experience buffer
-        bufferArray = np.array(episodeBuffer)
-        episodeBuffer = list(zip(bufferArray))
-        myBuffer.add(episodeBuffer)
+        if (len(episodeBuffer)>= self.trace_length):
+          bufferArray = np.array(episodeBuffer)
+          episodeBuffer = list(zip(bufferArray))
+          myBuffer.add(episodeBuffer)
         jList.append(j)
         rList.append(rAll)
 
         #Periodically save the model. 
-        if i % 60 == 0 and i != 0:
+        if i % 100 == 0 and i != 0:
             saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
             print ("Saved Model")
         if len(rList) % self.summaryLength == 0 and len(rList) != 0:
