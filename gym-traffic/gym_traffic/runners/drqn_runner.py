@@ -93,7 +93,7 @@ class DRQNRunner(object):
     with tf.Session() as sess:
       if (self.load_model == True):
         print ('Loading Model...')
-        ckpt = tf.train.get_checkpoint_state(path)
+        ckpt = tf.train.get_checkpoint_state(self.path)
         saver.restore(sess,ckpt.model_checkpoint_path)
       sess.run(init)
      
@@ -190,11 +190,11 @@ class DRQNRunner(object):
 
         #Periodically save the model. 
         if i % 60 == 0 and i != 0:
-            saver.save(sess,path+'/model-'+str(i)+'.cptk')
+            saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
             print ("Saved Model")
         if len(rList) % self.summaryLength == 0 and len(rList) != 0:
             print (total_steps,np.mean(rList[-self.summaryLength:]), e)
             saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer), [len(episodeBuffer),5]), self.summaryLength, 
               self.h_size, sess, mainQN, self.time_per_step)
-      saver.save(sess,path+'/model-'+str(i)+'.cptk')
+      saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
 

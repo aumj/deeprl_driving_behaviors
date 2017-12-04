@@ -38,14 +38,15 @@ class DRQNTester(object):
     self.max_epLength = 50 #The max allowed length of our episode.
     self.time_per_step = 1 #Length of each step used in gif creation
     self.summaryLength = 100 #Number of epidoes to periodically save for analysis
+    self.batch_size = 4
 
 
-  def run_testing(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True):
+  def run_testing(self, env):
     tf.reset_default_graph()
     cell = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
     cellT = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
-    mainQN = DRQN(self.h_size, cell, 'main')
-    targetQN = DRQN(self.h_size, cellT, 'target')
+    mainQN = DRQN(self.h_size, self.batch_size, cell, 'main')
+    targetQN = DRQN(self.h_size, self.batch_size, cellT, 'target')
 
     init = tf.global_variables_initializer()
 
@@ -61,7 +62,7 @@ class DRQNTester(object):
         os.makedirs(self.path)
 
     ##Write the first line of the master log-file for the Control Center
-    with open('./Center/log.csv', 'w') as myfile:
+    with open('../Center/log.csv', 'w') as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(['Episode','Length','Reward','IMG','LOG','SAL'])    
         
@@ -79,26 +80,30 @@ class DRQNTester(object):
             episodeBuffer = []
             #Reset environment and get first new observation
             sP = env.reset()
-            s = processState(sP)
+            # s = processState(sP)
+            s = sP
             d = False
             rAll = 0
             j = 0
             state = (np.zeros([1, self.h_size]),np.zeros([1, self.h_size]))
             #The Q-Network
-            while j < max_epLength: #If the agent takes longer than 200 moves to reach either of the blocks, end the trial.
+            while j < self.max_epLength: #If the agent takes longer than 200 moves to reach either of the blocks, end the trial.
                 j+=1
                 #Choose an action by greedily (with e chance of random action) from the Q-network
                 if np.random.rand(1) < e:
                     state1 = sess.run(mainQN.rnn_state,\
                         feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
-                    a = np.random.randint(0,4)
+                    a = np.random.randint(0,3)
                 else:
                     a, state1 = sess.run([mainQN.predict,mainQN.rnn_state],\
                         feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,\
                         mainQN.state_in:state,mainQN.batch_size:1})
                     a = a[0]
+                    assert(a<3)
+
                 s1P,r,d = env.step(a)
-                s1 = processState(s1P)
+                # s1 = processState(s1P)
+                s1 = s1P
                 total_steps += 1
                 episodeBuffer.append(np.reshape(np.array([s,a,r,s1,d]),[1,5])) #Save the experience to our episode buffer.
                 rAll += r
@@ -114,8 +119,8 @@ class DRQNTester(object):
             rList.append(rAll)
 
             #Periodically save the model. 
-            if len(rList) % summaryLength == 0 and len(rList) != 0:
-                print (total_steps,np.mean(rList[-summaryLength:]), e)
+            if len(rList) % self.summaryLength == 0 and len(rList) != 0:
+                print (total_steps,np.mean(rList[-self.summaryLength:]), self.e)
                 saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer),[len(episodeBuffer),5]),\
-                    summaryLength, self.h_size, sess, mainQN, time_per_step)
+                    self.summaryLength, self.h_size, sess, mainQN, self.time_per_step)
     print ("Percent of succesful episodes: " + str(sum(rList)/self.num_episodes) + "%")
