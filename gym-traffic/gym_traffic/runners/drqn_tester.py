@@ -41,6 +41,7 @@ class DRQNTester(object):
     self.batch_size = 4
 
 
+
   def run_testing(self, env):
     tf.reset_default_graph()
     cell = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
@@ -91,15 +92,16 @@ class DRQNTester(object):
                 j+=1
                 #Choose an action by greedily (with e chance of random action) from the Q-network
                 if np.random.rand(1) < e:
-                    state1 = sess.run(mainQN.rnn_state,\
-                        feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
+                    state1 = sess.run(mainQN.rnn_state,
+                        feed_dict={mainQN.imageIn:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
+                        # feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
                     a = np.random.randint(0,3)
                 else:
-                    a, state1 = sess.run([mainQN.predict,mainQN.rnn_state],\
-                        feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,\
-                        mainQN.state_in:state,mainQN.batch_size:1})
+                    a, state1 = sess.run([mainQN.predict,mainQN.rnn_state],
+                        feed_dict={mainQN.imageIn:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
+                        # feed_dict={mainQN.scalarInput:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
                     a = a[0]
-                    assert(a<3)
+                    assert (a<3)
 
                 s1P,r,d = env.step(a)
                 # s1 = processState(s1P)
