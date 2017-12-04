@@ -58,9 +58,10 @@ class TrafficEnv(Env):
         self.ego_veh_vehID = 'ego_car'
         self.ego_veh_routeID = 'route_sn'
         self.ego_veh_typeID='EgoCar'
-        self.ego_veh_start_pos = 240 # intersection center is 251
-        self.ego_veh_goal_pos = 262 # intersection center is 251
+        self.ego_veh_start_pos = 245 # intersection center is 251
+        self.ego_veh_goal_pos = 260 # intersection center is 251
         self.ego_veh_start_speed = 0.
+        self.ego_veh_collision = False
 
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
@@ -97,9 +98,7 @@ class TrafficEnv(Env):
             traci.vehicle.add(vehID=self.ego_veh_vehID, routeID=self.ego_veh_routeID,
                               pos=self.ego_veh_start_pos, speed=self.ego_veh_start_speed, typeID=self.ego_veh_typeID)
             traci.vehicle.setSpeedMode(vehID=self.ego_veh_vehID, sm=0) # All speed checks are off
-            # import IPython
-            # IPython.embed()
-            self.screenshot()
+            # self.screenshot()
 
     def stop_sumo(self):
         if self.sumo_running:
@@ -107,9 +106,7 @@ class TrafficEnv(Env):
             self.sumo_running = False
 
     def check_collision(self):
-        warning = False
         min_dist = 100.00
-
     	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh_vehID))
     	for i in traci.vehicle.getIDList():
     		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
@@ -119,17 +116,20 @@ class TrafficEnv(Env):
     			if new_dist < min_dist:
     				min_dist = new_dist
 
-    	# mark "warning" as True when cars get too close OR the actual collision takes place
-    	if min_dist < 3.0: warning = True
-        return (warning, min_dist)
+    	if min_dist < 1.0:
+            self.ego_veh_collision = True
+        else:
+            self.ego_veh_collision = False
+        return min_dist
 
-    # TO DO: re-define reward function!!
-    def _reward(self):
-        (warning, min_dist) = self.check_collision()
+    # TODO: Refine reward function!!
+    def _reward(self, min_dist):
         if traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos:
             reward = 1000
-        elif warning:
+        elif self.ego_veh_collision:
             reward = -5000
+        elif min_dist < 2.5:
+            reward = -150
         else:
             reward = -0.1
         return reward
@@ -146,13 +146,15 @@ class TrafficEnv(Env):
 
         traci.simulationStep()
         observation = self._observation()
-        reward = self._reward()
+        min_dist = self.check_collision()
+        reward = self._reward(min_dist)
 
         # print self.check_collision()
 
         done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
                or (self.sumo_step > self.simulation_end) \
-               or (self.ego_veh_vehID not in traci.vehicle.getIDList())
+               or (self.ego_veh_vehID not in traci.vehicle.getIDList()) \
+               or self.ego_veh_collision
         # self.screenshot()
         if done:
             self.stop_sumo()
