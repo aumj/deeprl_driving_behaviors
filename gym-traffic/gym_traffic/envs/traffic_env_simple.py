@@ -1,5 +1,5 @@
 from traffic_env import TrafficEnv
-from traffic_lights import TrafficLightTwoWay
+from ego_vehicle import EgoVehicle
 import os
 
 
@@ -15,15 +15,20 @@ class TrafficEnvSimple(TrafficEnv):
         guifile = os.path.join(basepath, "view.settings.xml")
         addfile = os.path.join(basepath, "cross.add.xml")
         exitloops = ["loop4", "loop5", "loop6", "loop7"]
-        super(TrafficEnvSimple, self).__init__(mode=mode, lights=lights, netfile=netfile, routefile=routefile,
-                                               guifile=guifile, loops=loops, addfile=addfile, step_length="0.1",
-                                               simulation_end=3000, lanes=lanes, exitloops=exitloops)
+
+        ego_vehicles = [EgoVehicle('ego_car', 'route_sn', 'EgoCar', 245., 261., 0.),
+                        EgoVehicle('ego_car', 'route_se', 'EgoCar', 245., 261., 0.),
+                        EgoVehicle('ego_car', 'route_sw', 'EgoCar', 245., 241., 0.)]
+
+        super(TrafficEnvSimple, self).__init__(ego_vehicles=ego_vehicles, mode=mode, lights=lights, netfile=netfile,
+                                               routefile=routefile, guifile=guifile, loops=loops, addfile=addfile,
+                                               step_length="0.1", simulation_end=3000, lanes=lanes, exitloops=exitloops)
 
     def route_sample(self):
         # if self.np_random.uniform(0, 1) > 0.5:
-        ew = 0.25
-        we = 0.35
-        ns = 0.35
+        ew = 0.15
+        we = 0.15
+        ns = 0.12
         sn = 0.01
         return {"ns": ns,
                 "sn": sn,
