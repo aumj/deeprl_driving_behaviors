@@ -91,7 +91,7 @@ class DRQNTester(object):
             while j < self.max_epLength: #If the agent takes longer than 200 moves to reach either of the blocks, end the trial.
                 j+=1
                 #Choose an action by greedily (with e chance of random action) from the Q-network
-                if np.random.rand(1) < e:
+                if np.random.rand(1) < self.e:
                     state1 = sess.run(mainQN.rnn_state,
                         feed_dict={mainQN.imageIn:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
                         # feed_dict={mainQN.scalarInput:[s/255.0],mainQN.trainLength:1,mainQN.state_in:state,mainQN.batch_size:1})
@@ -103,7 +103,7 @@ class DRQNTester(object):
                     a = a[0]
                     assert (a<3)
 
-                s1P,r,d = env.step(a)
+                s1P, r, d, info = env.step(a)
                 # s1 = processState(s1P)
                 s1 = s1P
                 total_steps += 1

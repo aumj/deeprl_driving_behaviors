@@ -40,7 +40,7 @@ def example(operation):
 
     ## TRAINING
     if (operation == 'train'):
-        runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the 
+        runner = DRQNRunner(max_steps_per_episode=500) ## make a new class DRQNRunner which will have all the 
     ## functionality of "Training the network" - in the run function
     ## Don't worry about testing here's 
     ## you will need to retain newepisode, observe, learn, etc. in DRQN class
@@ -49,7 +49,7 @@ def example(operation):
     ## add info everywhere, see if it will cause any problems
 
     # def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True)
-        runner.run_training(train_env, nb_epoch = 100, nb_episodes = 500, render=True, verbose=True, train=True)
+        runner.run_training(train_env)
     elif (operation == 'test'):
         tester = DRQNTester()
         tester.run_testing(train_env)

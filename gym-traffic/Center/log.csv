@@ -1,1 +1,6 @@
 "Episode","Length","Reward","IMG","LOG","SAL"
+"99","50.0","-64.900000000000006","./frames/image99.gif","./frames/log99.csv","./frames/sal99.gif"
+"199","50.0","-50.0","./frames/image199.gif","./frames/log199.csv","./frames/sal199.gif"
+"299","50.0","-50.0","./frames/image299.gif","./frames/log299.csv","./frames/sal299.gif"
+"399","50.0","-50.0","./frames/image399.gif","./frames/log399.csv","./frames/sal399.gif"
+"499","50.0","-50.0","./frames/image499.gif","./frames/log499.csv","./frames/sal499.gif"
