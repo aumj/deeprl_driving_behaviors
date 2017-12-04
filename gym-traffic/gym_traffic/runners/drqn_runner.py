@@ -48,7 +48,7 @@ class DRQNRunner(object):
     self.h_size = 512 #The size of the final convolutional layer before splitting it into Advantage and Value streams.
     self.max_epLength = max_steps_per_episode #The max allowed length of our episode.
     self.time_per_step = 1 #Length of each step used in gif creation
-    self.summaryLength = 50 #Number of epidoes to periodically save for analysis
+    self.summaryLength = 100 #Number of epidoes to periodically save for analysis
     self.tau = 0.001
 
 
@@ -63,7 +63,7 @@ class DRQNRunner(object):
 
     init = tf.global_variables_initializer()
 
-    saver = tf.train.Saver(max_to_keep=5)
+    saver = tf.train.Saver(max_to_keep=10)
 
     trainables = tf.trainable_variables()
 
@@ -103,7 +103,7 @@ class DRQNRunner(object):
         # print ('-------------------', len(episodeBuffer), i, self.num_episodes)
         #Reset environment and get first new observation
         print ('Episode: ', i)
-        print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
+        # print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
         sP = env.reset()
         # s = processState(sP)
         s = sP
@@ -189,7 +189,7 @@ class DRQNRunner(object):
         rList.append(rAll)
 
         #Periodically save the model. 
-        if i % 50 == 0 and i != 0:
+        if i % 100 == 0 and i != 0:
             saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
             print ("Saved Model")
         if len(rList) % self.summaryLength == 0 and len(rList) != 0:
