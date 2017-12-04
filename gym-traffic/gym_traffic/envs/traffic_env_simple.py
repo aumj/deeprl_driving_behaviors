@@ -33,6 +33,5 @@ class TrafficEnvSimple(TrafficEnv):
         sn = 0.01
 
         routes = {"ns": ns, "sn": sn, "ew": ew, "we": we}
-        print "Routes = ", routes
 
         return routes
