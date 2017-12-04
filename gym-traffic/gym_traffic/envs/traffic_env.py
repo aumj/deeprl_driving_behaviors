@@ -11,6 +11,7 @@ from string import Template
 import os, sys
 import numpy as np
 import math
+import random
 import time
 
 if 'SUMO_HOME' in os.environ:
@@ -23,9 +24,9 @@ else:
 class TrafficEnv(Env):
     metadata = {'render.modes': ['human', 'rgb_array']}
 
-    def __init__(self, lights, netfile, routefile, guifile, addfile, loops=[], lanes=[], exitloops=[],
+    def __init__(self, lights, netfile, routefile, guifile, addfile, ego_vehicles, loops=[], lanes=[], exitloops=[],
                  tmpfile="tmp.rou.xml", pngfile="tmp.png", mode="gui", detector="detector0",
-                 step_length = "0.1",  simulation_end=3600, sleep_between_restart=1):
+                 step_length = "0.1",  simulation_end=3600, sleep_between_restart=0.1):
         # "--end", str(simulation_end),
         self.simulation_end = simulation_end
         self.sleep_between_restart = sleep_between_restart
@@ -55,13 +56,17 @@ class TrafficEnv(Env):
         self.action_space = spaces.Discrete(3)
         self.throttle_actions = {0: 0., 1: 1., 2:-1.}
 
-        self.ego_veh_vehID = 'ego_car'
-        self.ego_veh_routeID = 'route_sn'
-        self.ego_veh_typeID='EgoCar'
-        self.ego_veh_start_pos = 245 # intersection center is 251
-        self.ego_veh_goal_pos = 260 # intersection center is 251
-        self.ego_veh_start_speed = 0.
+        self.ego_vehicles = ego_vehicles
+        self.ego_veh = ego_vehicles[0]
         self.ego_veh_collision = False
+
+        # self.ego_veh.vehID = 'ego_car'
+        # self.ego_veh.routeID = 'route_sn'
+        # self.ego_veh.typeID='EgoCar'
+        # self.ego_veh.start_pos = 245 # intersection center is 251
+        # self.ego_veh.goal_pos = 260 # intersection center is 251
+        # self.ego_veh.start_speed = 0.
+        # self.ego_veh_collision = False
 
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
@@ -95,9 +100,9 @@ class TrafficEnv(Env):
             self.sumo_running = True
             for i in range(800):
                 traci.simulationStep()
-            traci.vehicle.add(vehID=self.ego_veh_vehID, routeID=self.ego_veh_routeID,
-                              pos=self.ego_veh_start_pos, speed=self.ego_veh_start_speed, typeID=self.ego_veh_typeID)
-            traci.vehicle.setSpeedMode(vehID=self.ego_veh_vehID, sm=0) # All speed checks are off
+            traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
+                              pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
+            traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
             # self.screenshot()
 
     def stop_sumo(self):
@@ -107,10 +112,10 @@ class TrafficEnv(Env):
 
     def check_collision(self):
         min_dist = 100.00
-    	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh_vehID))
+    	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
     	for i in traci.vehicle.getIDList():
     		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
-    		if i != self.ego_veh_vehID and i.find('flow_n_s') == -1:
+    		if i != self.ego_veh.vehID and i.find('flow_n_s') == -1:
     			pos = np.array(traci.vehicle.getPosition(i))
     			new_dist = np.linalg.norm(ego_pos - pos)
     			if new_dist < min_dist:
@@ -124,25 +129,25 @@ class TrafficEnv(Env):
 
     # TODO: Refine reward function!!
     def _reward(self, min_dist):
-        if traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos:
+        if self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
             reward = 1000
         elif self.ego_veh_collision:
             reward = -5000
         elif min_dist < 2.5:
             reward = -150
         else:
-            reward = -0.1
+            reward = -1
         return reward
 
     def _step(self, action):
         self.start_sumo()
         self.sumo_step += 1
 
-        new_speed = traci.vehicle.getSpeed(self.ego_veh_vehID) + self.sumo_deltaT * self.throttle_actions[action]
-        traci.vehicle.setSpeed(self.ego_veh_vehID, new_speed)
+        new_speed = traci.vehicle.getSpeed(self.ego_veh.vehID) + self.sumo_deltaT * self.throttle_actions[action]
+        traci.vehicle.setSpeed(self.ego_veh.vehID, new_speed)
 
         # print("Step = ", self.sumo_step, "   | action = ", action)
-        # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh_vehID), "   | new speed = ",new_speed)
+        # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh.vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
         observation = self._observation()
@@ -151,9 +156,9 @@ class TrafficEnv(Env):
 
         # print self.check_collision()
 
-        done = (traci.vehicle.getPosition(self.ego_veh_vehID)[1] >= self.ego_veh_goal_pos) \
+        done = self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
                or (self.sumo_step > self.simulation_end) \
-               or (self.ego_veh_vehID not in traci.vehicle.getIDList()) \
+               or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
                or self.ego_veh_collision
         # self.screenshot()
         if done:
@@ -168,8 +173,8 @@ class TrafficEnv(Env):
         state = []
         visible = []
         ego_car_in_scene=False
-        if self.ego_veh_vehID in traci.vehicle.getIDList():
-            ego_car_pos = traci.vehicle.getPosition(self.ego_veh_vehID)
+        if self.ego_veh.vehID in traci.vehicle.getIDList():
+            ego_car_pos = traci.vehicle.getPosition(self.ego_veh.vehID)
             ego_car_in_scene = True
         for i in traci.vehicle.getIDList():
             speed = traci.vehicle.getSpeed(i)
@@ -179,7 +184,7 @@ class TrafficEnv(Env):
             state_tuple = (i,pos[0], pos[1], angle, speed, laneid)
             state.append(state_tuple)
             if ego_car_in_scene:
-                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<42) and i not in self.ego_veh_vehID: #42 is 42 meters
+                if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<42) and i not in self.ego_veh.vehID: #42 is 42 meters
                     visible.append(state_tuple)
 
         def location2bounds(x, y, orientation):
@@ -266,6 +271,7 @@ class TrafficEnv(Env):
 
     def _reset(self):
         self.stop_sumo()
+        self.ego_veh = random.choice(self.ego_vehicles)
         # sleep required on some systems
         if self.sleep_between_restart > 0:
             time.sleep(self.sleep_between_restart)

@@ -1,14 +1,17 @@
 <routes>
-    <vType accel="1.0" decel="5.0" id="Car" color="yellow" length="4.5" maxSpeed="20.0" sigma="0.50" vClass="passenger" guiShape="passenger" />
-    <vType accel="1.0" decel="5.0" id="EgoCar" color="blue" length="4.5" maxSpeed="20.0" sigma="0.50" vClass="passenger" guiShape="passenger" />
+    <vType accel="1.0" decel="5.0" id="Car" color="yellow" length="4.5" maxSpeed="20.0" sigma="0.50" impatience="0.1" vClass="passenger" guiShape="passenger" />
+    <vType accel="1.0" decel="5.0" id="EgoCar" color="blue" length="4.5" maxSpeed="20.0" sigma="0.50" impatience="0.1" vClass="passenger" guiShape="passenger" />
     <route id="route_ns" edges="n_0 0_s"/>
     <route id="route_sn" edges="s_0 0_n"/>
     <route id="route_ew" edges="e_0 0_w"/>
     <route id="route_we" edges="w_0 0_e"/>
 
+    <route id="route_se" edges="s_0 0_e"/>
+    <route id="route_sw" edges="s_0 0_w"/>
+
 
     <flow depart="1" id="flow_n_s" route="route_ns" type="Car" begin="0" end="3600" probability="$ns" />
-    <!-- <flow depart="1" id="flow_s_n" route="route_sn" type="Car" begin="0" end="3600" probability="$sn" guiShape="passenger/sedan"/> -->
+    <flow depart="1" id="flow_s_n" route="route_sn" type="Car" begin="0" end="3600" probability="$sn" />
     <flow depart="1" id="flow_e_w" route="route_ew" type="Car" begin="0" end="3600" probability="$ew" />
     <flow depart="1" id="flow_w_e" route="route_we" type="Car" begin="0" end="3600" probability="$we" />
 
