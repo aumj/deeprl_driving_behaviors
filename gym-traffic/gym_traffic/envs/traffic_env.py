@@ -60,14 +60,6 @@ class TrafficEnv(Env):
         self.ego_veh = ego_vehicles[0]
         self.ego_veh_collision = False
 
-        # self.ego_veh.vehID = 'ego_car'
-        # self.ego_veh.routeID = 'route_sn'
-        # self.ego_veh.typeID='EgoCar'
-        # self.ego_veh.start_pos = 245 # intersection center is 251
-        # self.ego_veh.goal_pos = 260 # intersection center is 251
-        # self.ego_veh.start_speed = 0.
-        # self.ego_veh_collision = False
-
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
         #                           shape=(len(self.loops) * len(self.loop_variables),))
@@ -95,15 +87,26 @@ class TrafficEnv(Env):
             traci.start(self.sumo_cmd)
             for loopid in self.loops:
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
-            self.sumo_step = 0
-            self.sumo_deltaT = traci.simulation.getDeltaT()/1000. # Simulation timestep in seconds
             self.sumo_running = True
-            for i in range(800):
-                traci.simulationStep()
-            traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
-                              pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
-            traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
-            # self.screenshot()
+            # for i in range(800):
+            #     traci.simulationStep()
+            # traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
+            #                   pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
+            # traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
+        else: # Reset vehicles in simulation
+            traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
+            traci.simulation.clearPending()
+
+        self.sumo_step = 0
+        self.sumo_deltaT = traci.simulation.getDeltaT()/1000. # Simulation timestep in seconds
+        for i in range(800):
+            traci.simulationStep()
+        self.ego_veh = random.choice(self.ego_vehicles)
+        self.ego_veh_collision = False
+        traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
+                          pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
+        traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
+        # self.screenshot()
 
     def stop_sumo(self):
         if self.sumo_running:
@@ -121,7 +124,7 @@ class TrafficEnv(Env):
     			if new_dist < min_dist:
     				min_dist = new_dist
 
-    	if min_dist < 1.0:
+    	if min_dist < 1.25:
             self.ego_veh_collision = True
         else:
             self.ego_veh_collision = False
@@ -140,7 +143,8 @@ class TrafficEnv(Env):
         return reward
 
     def _step(self, action):
-        self.start_sumo()
+        if not self.sumo_running:
+            self.start_sumo()
         self.sumo_step += 1
 
         new_speed = traci.vehicle.getSpeed(self.ego_veh.vehID) + self.sumo_deltaT * self.throttle_actions[action]
@@ -158,11 +162,11 @@ class TrafficEnv(Env):
 
         done = self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
                or (self.sumo_step > self.simulation_end) \
-               or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
                or self.ego_veh_collision
+               # or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
         # self.screenshot()
-        if done:
-            self.stop_sumo()
+        # if done:
+        #     self.stop_sumo()
         return observation, reward, done, self.route_info
 
     def screenshot(self):
@@ -270,11 +274,23 @@ class TrafficEnv(Env):
         return obstacle_image
 
     def _reset(self):
-        self.stop_sumo()
-        self.ego_veh = random.choice(self.ego_vehicles)
-        # sleep required on some systems
-        if self.sleep_between_restart > 0:
-            time.sleep(self.sleep_between_restart)
+        # if self.sumo_running:
+        #     traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
+        #     traci.simulation.clearPending()
+        #     self.sumo_step = 0
+        #     for i in range(800):
+        #         traci.simulationStep()
+        #     self.ego_veh = random.choice(self.ego_vehicles)
+        #     self.ego_veh_collision = False
+        #     traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
+        #                       pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
+        #     traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
+        # else:
+        #     # self.stop_sumo()
+        #     self.ego_veh = random.choice(self.ego_vehicles)
+        #     # sleep required on some systems
+        #     if self.sleep_between_restart > 0:
+        #         time.sleep(self.sleep_between_restart)
         self.start_sumo()
         observation = self._observation()
         return observation
