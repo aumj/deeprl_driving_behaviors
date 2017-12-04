@@ -13,16 +13,17 @@ sys.path.insert(0, os.path.join(repo_path, 'gym-traffic'))
 from gym_traffic.agents import DRQN
 # from gym_traffic.runners import SimpleRunner
 from gym_traffic.runners import DRQNRunner
+from gym_traffic.runners import DRQNTester
 import gym
 # from gym_traffic.runners.agent_runner import run_agent
 # from gym_traffic.runners import DRQNRunner
 import sys
 import argparse
 
-def build_agent(env):
-    return DRQN(env)
+# def build_agent(env):
+#     return DRQN(env)
 # 
-def example(gui):
+def example(operation):
     train_env = gym.make('Traffic-Simple-cli-v0')
     # main_agent = build_agent(train_env)  ## just initialize a DRQN object here - this builds the network as well
     # target_agent = build_agent(train_env)
@@ -38,7 +39,8 @@ def example(gui):
     #         return train_env
 
     ## TRAINING
-    runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the 
+    if (operation == 'train'):
+        runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the 
     ## functionality of "Training the network" - in the run function
     ## Don't worry about testing here's 
     ## you will need to retain newepisode, observe, learn, etc. in DRQN class
@@ -47,7 +49,10 @@ def example(gui):
     ## add info everywhere, see if it will cause any problems
 
     # def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True)
-    runner.run_training(train_env, nb_epoch = 100, nb_episodes = 500, render=True, verbose=True, train=True)
+        runner.run_training(train_env, nb_epoch = 100, nb_episodes = 500, render=True, verbose=True, train=True)
+    elif (operation == 'test'):
+        tester = DRQNTester()
+        tester.run_testing(train_env)
 
 
 
@@ -58,13 +63,15 @@ def example(gui):
 
 def main():
     operation = sys.argv[1]
-    
-    parser = argparse.ArgumentParser(description='Example DQN implementation of traffic light control.')
-    parser.add_argument('-G', '--gui', action="store_true",
-                        help='run GUI mode during testing to render videos')
 
-    args = parser.parse_args(argv)
-    example(args.gui)
+    example(operation)
+
+    # parser = argparse.ArgumentParser(description='Example DQN implementation of traffic light control.')
+    # parser.add_argument('-G', '--gui', action="store_true",
+    #                     help='run GUI mode during testing to render videos')
+
+    # args = parser.parse_args(argv)
+    # example(args.gui)
 
 
 if __name__ == "__main__":

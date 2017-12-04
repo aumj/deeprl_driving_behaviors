@@ -33,7 +33,7 @@ def updateTarget(op_holder,sess):
         
 #Record performance metrics and episode logs for the Control Center.
 def saveToCenter(i,rList,jList,bufferArray,summaryLength,h_size,sess,mainQN,time_per_step):
-    with open('./Center/log.csv', 'a') as myfile:
+    with open('../Center/log.csv', 'a') as myfile:
         state_display = (np.zeros([1,h_size]),np.zeros([1,h_size]))
         imagesS = []
         for idx,z in enumerate(np.vstack(bufferArray[:,0])):
@@ -46,18 +46,18 @@ def saveToCenter(i,rList,jList,bufferArray,summaryLength,h_size,sess,mainQN,time
         imagesS = np.resize(imagesS,[len(imagesS),84,84,3])
         luminance = np.max(imagesS,3)
         imagesS = np.multiply(np.ones([len(imagesS),84,84,3]),np.reshape(luminance,[len(imagesS),84,84,1]))
-        make_gif(np.ones([len(imagesS),84,84,3]),'./Center/frames/sal'+str(i)+'.gif',duration=len(imagesS)*time_per_step,true_image=False,salience=True,salIMGS=luminance)
+        make_gif(np.ones([len(imagesS),84,84,3]),'../Center/frames/sal'+str(i)+'.gif',duration=len(imagesS)*time_per_step,true_image=False,salience=True,salIMGS=luminance)
 
         images = zip(bufferArray[:,0])
         images.append(bufferArray[-1,3])
         images = np.vstack(images)
         images = np.resize(images,[len(images),84,84,3])
-        make_gif(images,'./Center/frames/image'+str(i)+'.gif',duration=len(images)*time_per_step,true_image=True,salience=False)
+        make_gif(images,'../Center/frames/image'+str(i)+'.gif',duration=len(images)*time_per_step,true_image=True,salience=False)
 
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow([i,np.mean(jList[-100:]),np.mean(rList[-summaryLength:]),'./frames/image'+str(i)+'.gif','./frames/log'+str(i)+'.csv','./frames/sal'+str(i)+'.gif'])
         myfile.close()
-    with open('./Center/frames/log'+str(i)+'.csv','w') as myfile:
+    with open('../Center/frames/log'+str(i)+'.csv','w') as myfile:
         state_train = (np.zeros([1,h_size]),np.zeros([1,h_size]))
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(["ACTION","REWARD","A0","A1",'A2','A3','V'])

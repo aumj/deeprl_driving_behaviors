@@ -38,14 +38,16 @@ class DRQNTester(object):
     self.max_epLength = 50 #The max allowed length of our episode.
     self.time_per_step = 1 #Length of each step used in gif creation
     self.summaryLength = 100 #Number of epidoes to periodically save for analysis
+    self.batch_size = 4
 
 
-  def run_testing(self, env, nb_epoch):
+
+  def run_testing(self, env):
     tf.reset_default_graph()
     cell = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
     cellT = tf.contrib.rnn.BasicLSTMCell(num_units = self.h_size, state_is_tuple = True)
-    mainQN = DRQN(self.h_size, cell, 'main')
-    targetQN = DRQN(self.h_size, cellT, 'target')
+    mainQN = DRQN(self.h_size, self.batch_size, cell, 'main')
+    targetQN = DRQN(self.h_size, self.batch_size, cellT, 'target')
 
     init = tf.global_variables_initializer()
 
@@ -61,7 +63,7 @@ class DRQNTester(object):
         os.makedirs(self.path)
 
     ##Write the first line of the master log-file for the Control Center
-    with open('./Center/log.csv', 'w') as myfile:
+    with open('../Center/log.csv', 'w') as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(['Episode','Length','Reward','IMG','LOG','SAL'])    
         
@@ -100,6 +102,7 @@ class DRQNTester(object):
                         # feed_dict={mainQN.scalarInput:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
                     a = a[0]
                     assert (a<3)
+
                 s1P,r,d = env.step(a)
                 # s1 = processState(s1P)
                 s1 = s1P
@@ -119,7 +122,7 @@ class DRQNTester(object):
 
             #Periodically save the model. 
             if len(rList) % self.summaryLength == 0 and len(rList) != 0:
-                print (total_steps,np.mean(rList[- self.summaryLength:]), self.e)
+                print (total_steps,np.mean(rList[-self.summaryLength:]), self.e)
                 saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer),[len(episodeBuffer),5]),\
                     self.summaryLength, self.h_size, sess, mainQN, self.time_per_step)
     print ("Percent of succesful episodes: " + str(sum(rList)/self.num_episodes) + "%")
