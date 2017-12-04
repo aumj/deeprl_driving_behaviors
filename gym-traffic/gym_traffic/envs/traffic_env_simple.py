@@ -1,6 +1,7 @@
 from traffic_env import TrafficEnv
 from ego_vehicle import EgoVehicle
 import os
+import numpy as np
 
 
 class TrafficEnvSimple(TrafficEnv):
@@ -26,12 +27,12 @@ class TrafficEnvSimple(TrafficEnv):
 
     def route_sample(self):
         # if self.np_random.uniform(0, 1) > 0.5:
-        ew = 0.15
-        we = 0.15
-        ns = 0.12
+        ew = np.random.normal(0.15, 0.02)
+        we = np.random.normal(0.12, 0.02)
+        ns = np.random.normal(0.12, 0.02)
         sn = 0.01
-        return {"ns": ns,
-                "sn": sn,
-                "ew": ew,
-                "we": we,
-                }
+
+        routes = {"ns": ns, "sn": sn, "ew": ew, "we": we}
+        print "Routes = ", routes
+
+        return routes

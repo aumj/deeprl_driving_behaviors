@@ -82,17 +82,13 @@ class TrafficEnv(Env):
         return [seed]
 
     def start_sumo(self):
+        self.route_info = self.route_sample()
         if not self.sumo_running:
             self.write_routes()
             traci.start(self.sumo_cmd)
             for loopid in self.loops:
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_running = True
-            # for i in range(800):
-            #     traci.simulationStep()
-            # traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
-            #                   pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
-            # traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
         else: # Reset vehicles in simulation
             traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
             traci.simulation.clearPending()
