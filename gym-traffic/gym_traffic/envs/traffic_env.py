@@ -4,6 +4,7 @@ from gym.utils import seeding
 import traci
 import traci.constants as tc
 from scipy.misc import imread
+from scipy.ndimage import rotate
 # from scipy.misc import imsave
 import matplotlib.pyplot as plt
 from gym import spaces
@@ -175,6 +176,7 @@ class TrafficEnv(Env):
         ego_car_in_scene=False
         if self.ego_veh.vehID in traci.vehicle.getIDList():
             ego_car_pos = traci.vehicle.getPosition(self.ego_veh.vehID)
+            ego_car_ang = traci.vehicle.getAngle(self.ego_veh.vehID)
             ego_car_in_scene = True
         for i in traci.vehicle.getIDList():
             speed = traci.vehicle.getSpeed(i)
@@ -187,7 +189,7 @@ class TrafficEnv(Env):
                 if(np.linalg.norm(np.asarray(pos)-np.asarray(ego_car_pos))<42) and i not in self.ego_veh.vehID: #42 is 42 meters
                     visible.append(state_tuple)
 
-        def location2bounds(x, y, orientation):
+        def location2bounds(x, y, angle):
             bound = 84
             car_length = 5 # meters
             car_width = 1.8 # meters
@@ -196,16 +198,37 @@ class TrafficEnv(Env):
             car_c_bound_x_2 = 0
             car_c_bound_y_1 = 0
             car_c_bound_y_2 = 0
-            if orientation == 'vertical':
+            # if orientation == 'vertical':
+            #     car_c_bound_x_1 = x-(car_width/2.0)
+            #     car_c_bound_x_2 = x+(car_width/2.0)
+            #     car_c_bound_y_1 = y-(car_length/2.0)
+            #     car_c_bound_y_2 = y+(car_length/2.0)
+            # elif orientation == 'horizontal':
+            #     car_c_bound_x_1 = x-(car_length/2.0)
+            #     car_c_bound_x_2 = x+(car_length/2.0)
+            #     car_c_bound_y_1 = y-(car_width/2.0)
+            #     car_c_bound_y_2 = y+(car_width/2.0)
+            if (abs(angle - 0.0) < 0.01):
                 car_c_bound_x_1 = x-(car_width/2.0)
                 car_c_bound_x_2 = x+(car_width/2.0)
-                car_c_bound_y_1 = y-(car_length/2.0)
-                car_c_bound_y_2 = y+(car_length/2.0)
-            elif orientation == 'horizontal':
-                car_c_bound_x_1 = x-(car_length/2.0)
-                car_c_bound_x_2 = x+(car_length/2.0)
+                car_c_bound_y_1 = y-car_length
+                car_c_bound_y_2 = y
+            elif (abs(angle - 180.0) < 0.01):
+                car_c_bound_x_1 = x-(car_width/2.0)
+                car_c_bound_x_2 = x+(car_width/2.0)
+                car_c_bound_y_1 = y
+                car_c_bound_y_2 = y+car_length
+            elif (abs(angle - 90.0) < 0.01):
+                car_c_bound_x_1 = x-car_length
+                car_c_bound_x_2 = x
                 car_c_bound_y_1 = y-(car_width/2.0)
                 car_c_bound_y_2 = y+(car_width/2.0)
+            elif (abs(angle - 270.0) < 0.01):
+                car_c_bound_x_1 = x
+                car_c_bound_x_2 = x+car_length
+                car_c_bound_y_1 = y-(car_width/2.0)
+                car_c_bound_y_2 = y+(car_width/2.0)
+
 
             # discrete bounds
             car_d_bound_x_1 = np.floor(car_c_bound_x_1)+np.floor(bound/2.0)
@@ -237,7 +260,7 @@ class TrafficEnv(Env):
         obstacle_image = np.zeros((bound,bound,3)) # 1 meter descretization image
         if ego_car_in_scene:
             # insert ego car
-            car_bounds = location2bounds(0.0, 0.0, 'vertical')
+            car_bounds = location2bounds(0.0, 0.0, 0.0)
             for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                 for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                     obstacle_image[bound-1-y,x,0] = 1
@@ -245,26 +268,36 @@ class TrafficEnv(Env):
             #other cars
             for other_car in visible:
                 #if vertical
-                if (other_car[5] == 'route_ns') or (other_car[5] == 'route_sn'):
-                    car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], 'vertical')
+                # if (other_car[5] == 'route_ns') or (other_car[5] == 'route_sn'):
+                if (abs(other_car[3] - 0.0) < 0.01) or (abs(other_car[3] - 180.0) < 0.01):
+                    car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[bound-1-y,x,2] = 1
                 #if horizontal
-                if (other_car[5] == 'route_ew') or (other_car[5] == 'route_we'):
-                    car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], 'horizontal')
+                # if (other_car[5] == 'route_ew') or (other_car[5] == 'route_we'):
+                if (abs(other_car[3] - 90.0) < 0.01) or (abs(other_car[3] - 270.0) < 0.01):
+                    car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[bound-1-y,x,2] = 1
 
-        # plt.imsave('test.jpg', obstacle_image)
-        # import IPython
-        # IPython.embed()
-        # plt.ion()
-        # plt.imshow(obstacle_image)
-        # plt.draw()
-        # plt.show(block=False)
-        # plt.show()
+            obstacle_image[:,:,2] = np.round(np.clip(rotate(obstacle_image[:,:,2], ego_car_ang, reshape=False, output=np.float), 0, 1))
+
+            # plt.imsave('test.jpg', obstacle_image)
+            # plt.ion()
+            # plt.imshow(obstacle_image)
+            # plt.imshow(obstacle_image[:,:,0])
+            # plt.imshow(obstacle_image[:,:,1])
+            # plt.imshow(obstacle_image[:,:,2])
+            # plt.draw(plt.imshow(obstacle_image))
+            # plt.draw()
+            # time.sleep(1.0)
+            # time.sleep(5.0)
+            # import IPython
+            # IPython.embed()
+            # plt.show(block=False)
+            # plt.show()
 
         #TODO: Always return just a obstacle_image, possibly with ego_vehicle in separate channel
         return obstacle_image
