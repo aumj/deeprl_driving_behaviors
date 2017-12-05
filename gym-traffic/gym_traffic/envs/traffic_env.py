@@ -91,7 +91,8 @@ class TrafficEnv(Env):
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_running = True
         else: # Reset vehicles in simulation
-            traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
+            if self.ego_veh.vehID in traci.vehicle.getIDList():
+                traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
             traci.simulation.clearPending()
 
         self.sumo_step = 0
@@ -113,19 +114,17 @@ class TrafficEnv(Env):
     def check_collision(self):
         if self.ego_veh.vehID in traci.vehicle.getIDList():
             min_dist = 100.00
-        	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
-        	for i in traci.vehicle.getIDList():
+            ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
+            for i in traci.vehicle.getIDList():
         		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
-        		if i != self.ego_veh.vehID and i.find('flow_n_s') == -1:
+                if i != self.ego_veh.vehID:
         			pos = np.array(traci.vehicle.getPosition(i))
         			new_dist = np.linalg.norm(ego_pos - pos)
         			if new_dist < min_dist:
         				min_dist = new_dist
+        	if min_dist < 1.25: self.ego_veh_collision = True
+            else: self.ego_veh_collision = False
 
-        	if min_dist < 1.25:
-                self.ego_veh_collision = True
-            else:
-                self.ego_veh_collision = False
         else:
             min_dist = 0.
             self.ego_veh_collision = True
@@ -148,6 +147,7 @@ class TrafficEnv(Env):
         if not self.sumo_running:
             self.start_sumo()
         self.sumo_step += 1
+
 
         new_speed = traci.vehicle.getSpeed(self.ego_veh.vehID) + self.sumo_deltaT * self.throttle_actions[action]
         traci.vehicle.setSpeed(self.ego_veh.vehID, new_speed)
