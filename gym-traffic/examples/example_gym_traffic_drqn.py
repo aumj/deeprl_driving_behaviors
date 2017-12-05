@@ -14,6 +14,7 @@ from gym_traffic.agents import DRQN
 # from gym_traffic.runners import SimpleRunner
 from gym_traffic.runners import DRQNRunner
 from gym_traffic.runners import DRQNTester
+from gym_traffic.runners import DRQNTesterGUI
 import gym
 # from gym_traffic.runners.agent_runner import run_agent
 # from gym_traffic.runners import DRQNRunner
@@ -22,13 +23,13 @@ import argparse
 
 # def build_agent(env):
 #     return DRQN(env)
-# 
-def example(operation):
-    train_env = gym.make('Traffic-Simple-cli-v0')
+#
+def example(operation, gui):
+    # train_env = gym.make('Traffic-Simple-cli-v0')
     # main_agent = build_agent(train_env)  ## just initialize a DRQN object here - this builds the network as well
     # target_agent = build_agent(train_env)
     # path = "output/traffic/simple/dqn"
-    # explorer = EpsilonExplorer(agent, epsilon=0.5, decay=5e-7)  ## we do need this ? helps us trade off between 
+    # explorer = EpsilonExplorer(agent, epsilon=0.5, decay=5e-7)  ## we do need this ? helps us trade off between
     ## exploration and exploitation? need this? (only difference in act function)
 
     # if gui:
@@ -40,9 +41,10 @@ def example(operation):
 
     ## TRAINING
     if (operation == 'train'):
-        runner = DRQNRunner(max_steps_per_episode=500) ## make a new class DRQNRunner which will have all the 
+        train_env = gym.make('Traffic-Simple-cli-v0')
+        runner = DRQNRunner(max_steps_per_episode=500) ## make a new class DRQNRunner which will have all the
     ## functionality of "Training the network" - in the run function
-    ## Don't worry about testing here's 
+    ## Don't worry about testing here's
     ## you will need to retain newepisode, observe, learn, etc. in DRQN class
     ## DRQNRunner will retain basic things like agent.new_episode(), etc. but everything else will be from DRQN:
     ## with all double DQN, etc., targetQN, etc.
@@ -51,7 +53,12 @@ def example(operation):
     # def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True)
         runner.run_training(train_env)
     elif (operation == 'test'):
-        tester = DRQNTester()
+        if gui:
+            train_env = gym.make('Traffic-Simple-gui-v0')
+            tester = DRQNTesterGUI()
+        else:
+            train_env = gym.make('Traffic-Simple-cli-v0')
+            tester = DRQNTester()
         tester.run_testing(train_env)
 
 
@@ -63,15 +70,18 @@ def example(operation):
 
 def main():
     operation = sys.argv[1]
+    if sys.argv[2] == 'gui':
+        gui = True
 
-    example(operation)
+    # example(operation)
 
-    # parser = argparse.ArgumentParser(description='Example DQN implementation of traffic light control.')
-    # parser.add_argument('-G', '--gui', action="store_true",
-    #                     help='run GUI mode during testing to render videos')
+    parser = argparse.ArgumentParser(description='Example DRQN implementation ofr intersection navigation.')
+    # parser.add_argument('--train', action='store_const', const='train', help='Train the DRQN Model')
+    # parser.add_argument('--test', action='store_const', const='test', help='Test the DRQN Model')
+    # parser.add_argument('-G', '--gui', action="store_true", help='run GUI mode during testing to render videos')
 
-    # args = parser.parse_args(argv)
-    # example(args.gui)
+    # args = parser.parse_args(sys.argv)
+    example(operation, gui)
 
 
 if __name__ == "__main__":
