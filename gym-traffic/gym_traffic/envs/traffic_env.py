@@ -282,7 +282,7 @@ class TrafficEnv(Env):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
                             obstacle_image[bound-1-y,x,1] = 1
 
-            obstacle_image[:,:,1] = np.round(np.clip(rotate(obstacle_image[:,:,1], ego_car_ang, reshape=False, output=np.float), 0, 1))
+            obstacle_image[:,:,1] = (np.clip(rotate(obstacle_image[:,:,1], ego_car_ang, reshape=False, output=np.float), 0, 1))
 
             # plt.imsave('test.jpg', obstacle_image)
             # plt.ion()
