@@ -42,7 +42,7 @@ def example(operation, gui):
     ## TRAINING
     if (operation == 'train'):
         train_env = gym.make('Traffic-Simple-cli-v0')
-        runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the
+        runner = DRQNRunner(max_steps_per_episode=500) ## make a new class DRQNRunner which will have all the
     ## functionality of "Training the network" - in the run function
     ## Don't worry about testing here's
     ## you will need to retain newepisode, observe, learn, etc. in DRQN class

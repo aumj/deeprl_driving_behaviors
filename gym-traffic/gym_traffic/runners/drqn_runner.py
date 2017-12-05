@@ -8,7 +8,7 @@ from gym_traffic.agents.drqn import DRQN
 from IPython import embed
 
 class experience_buffer():
-  def __init__(self, buffer_size = 500):
+  def __init__(self, buffer_size = 200):
     self.buffer = []
     self.buffer_size = buffer_size
 
@@ -32,7 +32,7 @@ class experience_buffer():
 
 class DRQNRunner(object):
 
-  def __init__(self, max_steps_per_episode = 1000):
+  def __init__(self, max_steps_per_episode = 500):
     # self.max_steps_per_episode=max_steps_per_episode
           #Setting the training parameters
     self.batch_size = 4 #How many experience traces to use for each training step.
