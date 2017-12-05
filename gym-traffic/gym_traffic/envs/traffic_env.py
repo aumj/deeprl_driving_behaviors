@@ -134,7 +134,7 @@ class TrafficEnv(Env):
         elif self.ego_veh_collision:
             reward = -5000
         elif min_dist < 2.5:
-            reward = -150
+            reward = -100
         else:
             reward = -1
         return reward

@@ -24,7 +24,7 @@ if monitor:
 for i_episode in tqdm(range(500)):
     observation = env.reset()
     total_reward = 0
-    for t in tqdm(range(1000)):
+    for t in tqdm(range(500)):
         # env.render()
         # print(observation)
         # print "\n Observation: {}".format(observation)
