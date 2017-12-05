@@ -111,28 +111,33 @@ class TrafficEnv(Env):
             self.sumo_running = False
 
     def check_collision(self):
-        min_dist = 100.00
-    	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
-    	for i in traci.vehicle.getIDList():
-    		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
-    		if i != self.ego_veh.vehID and i.find('flow_n_s') == -1:
-    			pos = np.array(traci.vehicle.getPosition(i))
-    			new_dist = np.linalg.norm(ego_pos - pos)
-    			if new_dist < min_dist:
-    				min_dist = new_dist
+        if self.ego_veh.vehID in traci.vehicle.getIDList():
+            min_dist = 100.00
+        	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
+        	for i in traci.vehicle.getIDList():
+        		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
+        		if i != self.ego_veh.vehID and i.find('flow_n_s') == -1:
+        			pos = np.array(traci.vehicle.getPosition(i))
+        			new_dist = np.linalg.norm(ego_pos - pos)
+        			if new_dist < min_dist:
+        				min_dist = new_dist
 
-    	if min_dist < 1.25:
-            self.ego_veh_collision = True
+        	if min_dist < 1.25:
+                self.ego_veh_collision = True
+            else:
+                self.ego_veh_collision = False
         else:
-            self.ego_veh_collision = False
+            min_dist = 0.
+            self.ego_veh_collision = True
+
         return min_dist
 
     # TODO: Refine reward function!!
     def _reward(self, min_dist):
-        if self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
-            reward = 1000
-        elif self.ego_veh_collision:
+        if self.ego_veh_collision:
             reward = -5000
+        elif self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
+            reward = 1000
         elif min_dist < 2.5:
             reward = -100
         else:
@@ -151,15 +156,15 @@ class TrafficEnv(Env):
         # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh.vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
-        observation = self._observation()
         min_dist = self.check_collision()
+        observation = self._observation()
         reward = self._reward(min_dist)
 
         # print self.check_collision()
 
-        done = self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
+        done = self.ego_veh_collision \
+               or self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
                or (self.sumo_step > self.simulation_end) \
-               or self.ego_veh_collision
                # or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
         # self.screenshot()
         # if done:
