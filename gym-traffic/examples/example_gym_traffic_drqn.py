@@ -69,19 +69,21 @@ def example(operation, gui):
 
 
 def main():
-    operation = sys.argv[1]
-    if sys.argv[2] == 'gui':
-        gui = True
+    # operation = sys.argv[1]
+    # if sys.argv[2] == 'gui':
+    #     gui = True
 
     # example(operation)
-
     parser = argparse.ArgumentParser(description='Example DRQN implementation ofr intersection navigation.')
     # parser.add_argument('--train', action='store_const', const='train', help='Train the DRQN Model')
     # parser.add_argument('--test', action='store_const', const='test', help='Test the DRQN Model')
-    # parser.add_argument('-G', '--gui', action="store_true", help='run GUI mode during testing to render videos')
+    parser.add_argument("operation", help="Example Modes: (1) train (2) test")
+    parser.add_argument('-G', '--gui', action="store_true", help='run GUI mode during testing to render videos')
 
-    # args = parser.parse_args(sys.argv)
-    example(operation, gui)
+    args = parser.parse_args()
+    example(args.operation, args.gui)
+
+    # example(operation, gui)
 
 
 if __name__ == "__main__":
