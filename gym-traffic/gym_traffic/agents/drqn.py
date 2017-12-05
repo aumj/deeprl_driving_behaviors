@@ -80,10 +80,10 @@ class DRQN():
 
     def build_network(self):
         # self.scalarInput =  tf.placeholder(shape=[None,21168],dtype=tf.float32)
-        
+
         # self.imageIn = tf.reshape(self.scalarInput,shape=[-1,84,84,3])
-        
-        self.imageIn = tf.placeholder(shape=[None, self.height, self.width, 3], dtype = tf.float32)
+
+        self.imageIn = tf.placeholder(shape=[None, self.height, self.width, 2], dtype = tf.float32)
 
         self.conv1 = slim.convolution2d(inputs = self.imageIn, num_outputs = 32, kernel_size = [8,8], stride = [4,4],
             padding = 'VALID', biases_initializer = None, scope = self.myScope + '_conv1')
@@ -100,7 +100,7 @@ class DRQN():
         self.trainLength = tf.placeholder(dtype = tf.int32)
 
         #We take the output from the final convolutional layer and send it to a recurrent layer.
-        #The input must be reshaped into [batch x trace x units] for rnn processing, 
+        #The input must be reshaped into [batch x trace x units] for rnn processing,
         #and then returned to [batch x units] when sent through the upper levles.
 
         self.batch_size = tf.placeholder(dtype = tf.int32, shape = [])
@@ -148,7 +148,7 @@ class DRQN():
         self.trainer = tf.train.AdamOptimizer(learning_rate = 0.0001)
         self.updateModel = self.trainer.minimize(self.loss)
 
-        
+
 
 
     # def observe(self, observation):

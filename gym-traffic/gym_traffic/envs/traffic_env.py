@@ -257,7 +257,7 @@ class TrafficEnv(Env):
 
 
         bound = 84
-        obstacle_image = np.zeros((bound,bound,3)) # 1 meter descretization image
+        obstacle_image = np.zeros((bound,bound,2)) # 1 meter descretization image
         if ego_car_in_scene:
             # insert ego car
             car_bounds = location2bounds(0.0, 0.0, 0.0)
@@ -273,16 +273,16 @@ class TrafficEnv(Env):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[bound-1-y,x,2] = 1
+                            obstacle_image[bound-1-y,x,1] = 1
                 #if horizontal
                 # if (other_car[5] == 'route_ew') or (other_car[5] == 'route_we'):
                 if (abs(other_car[3] - 90.0) < 0.01) or (abs(other_car[3] - 270.0) < 0.01):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[bound-1-y,x,2] = 1
+                            obstacle_image[bound-1-y,x,1] = 1
 
-            obstacle_image[:,:,2] = np.round(np.clip(rotate(obstacle_image[:,:,2], ego_car_ang, reshape=False, output=np.float), 0, 1))
+            obstacle_image[:,:,1] = np.round(np.clip(rotate(obstacle_image[:,:,1], ego_car_ang, reshape=False, output=np.float), 0, 1))
 
             # plt.imsave('test.jpg', obstacle_image)
             # plt.ion()
