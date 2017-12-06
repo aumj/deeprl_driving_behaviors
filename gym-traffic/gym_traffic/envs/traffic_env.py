@@ -158,6 +158,7 @@ class TrafficEnv(Env):
 		min_ttc = 10
 		action  = -1
 		front_warning = False
+		# pre_collision = False
 
 		routeID = self.ego_veh.routeID
 		# straight cross
@@ -171,21 +172,22 @@ class TrafficEnv(Env):
 					new_vel_y = new_vel * math.cos(new_ang)
 					new_pos = np.array(traci.vehicle.getPosition(i)) # in m
 
-					# ignore traffic in opposite direction
-					if abs(abs(new_ang - ego_ang) - math.pi) < 0.05:
-						rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
-						rel_dist = np.linalg.norm(ego_pos - new_pos)
-						new_ttc = rel_dist / rel_vel
+					rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
+					rel_dist = np.linalg.norm(ego_pos - new_pos)
+					new_ttc = rel_dist / rel_vel
 
-						rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
-						if rel_ang < 0.0:
-							rel_ang = 2*math.pi + rel_ang
+					rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
+					if rel_ang < 0.0:
+						rel_ang = 2*math.pi + rel_ang
 
-						if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
-							front_warning = True
+					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+						front_warning = True
 
-						if new_ttc < min_ttc:
-							min_ttc = new_ttc
+					# if rel_dist < 4.0: 
+					# 	pre_collision = True
+
+					if new_ttc < min_ttc:
+						min_ttc = new_ttc
 		# left turn 
 		elif routeID == 'route_sw':
 			for i in traci.vehicle.getIDList():
@@ -197,21 +199,22 @@ class TrafficEnv(Env):
 					new_vel_y = new_vel * math.cos(new_ang)
 					new_pos = np.array(traci.vehicle.getPosition(i)) # in m
 
-					# ignore traffic in opposite direction
-					if abs(abs(new_ang - ego_ang) - math.pi) < 0.05:
-						rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
-						rel_dist = np.linalg.norm(ego_pos - new_pos)
-						new_ttc = rel_dist / rel_vel
+					rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
+					rel_dist = np.linalg.norm(ego_pos - new_pos)
+					new_ttc = rel_dist / rel_vel
 
-						rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
-						if rel_ang < 0.0:
-							rel_ang = 2*math.pi + rel_ang
+					rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
+					if rel_ang < 0.0:
+						rel_ang = 2*math.pi + rel_ang
 
-						if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
-							front_warning = True
+					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+						front_warning = True
 
-						if new_ttc < min_ttc:
-							min_ttc = new_ttc
+					# if rel_dist < 4.0: 
+					# 	pre_collision = True
+
+					if new_ttc < min_ttc:
+						min_ttc = new_ttc
 
 		# right turn 
 		elif routeID == 'route_se':
@@ -224,27 +227,28 @@ class TrafficEnv(Env):
 					new_vel_y = new_vel * math.cos(new_ang)
 					new_pos = np.array(traci.vehicle.getPosition(i)) # in m
 
-					# ignore traffic in opposite direction
-					if abs(abs(new_ang - ego_ang) - math.pi) < 0.05:
-						rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
-						rel_dist = np.linalg.norm(ego_pos - new_pos)
-						new_ttc = rel_dist / rel_vel
+					rel_vel = np.linalg.norm([ego_vel_x - new_vel_x, ego_vel_y - new_vel_y])
+					rel_dist = np.linalg.norm(ego_pos - new_pos)
+					new_ttc = rel_dist / rel_vel
 
-						rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
-						if rel_ang < 0.0:
-							rel_ang = 2*math.pi + rel_ang
+					rel_ang = math.atan2(new_pos[0] - ego_pos[0], new_pos[1] - ego_pos[1]) # in radian
+					if rel_ang < 0.0:
+						rel_ang = 2*math.pi + rel_ang
 
-						if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
-							front_warning = True
+					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+						front_warning = True
 
-						if new_ttc < min_ttc:
-							min_ttc = new_ttc
+					# if rel_dist < 4.0: 
+					# 	pre_collision = True
+
+					if new_ttc < min_ttc:
+						min_ttc = new_ttc
 
 		else: 
 			print 'Invalid route for ego-vehicle. No action will be taken.'
 
 		# decision making based on min time-to-collision
-		if front_warning and min_ttc < 2.0: 
+		if (front_warning and min_ttc < 3.0): 
 			action = 2
 		else:
 			if min_ttc > 2.0 or abs(ego_pos[0] - 250) > 4 or ego_pos[1] - 250 > 4:
