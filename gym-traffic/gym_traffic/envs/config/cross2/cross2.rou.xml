@@ -9,6 +9,9 @@
     <route id="route_ew" edges="e_m m_w"/>
     <route id="route_we" edges="w_m m_e"/>
     
+    <route id="route_ns" edges="n_m m_s"/>
+    <route id="route_sn" edges="s_m m_n"/>
+    
     <flow depart="1" id="flow_w_n_car" route="route_wn" type="Car" begin="0" end="3600" probability="0.05" />
     <flow depart="1" id="flow_w_s_car" route="route_ws" type="Car" begin="0" end="3600" probability="0.05" />
     <flow depart="1" id="flow_e_n_car" route="route_en" type="Car" begin="0" end="3600" probability="0.05" />
