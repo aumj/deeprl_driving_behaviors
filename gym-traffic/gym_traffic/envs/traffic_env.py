@@ -38,8 +38,8 @@ class TrafficEnv(Env):
         self.loop_variables = [tc.LAST_STEP_MEAN_SPEED, tc.LAST_STEP_TIME_SINCE_DETECTION, tc.LAST_STEP_VEHICLE_NUMBER]
         self.lanes = lanes
         self.detector = detector
-        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length,
-                "--collision.check-junctions", "true", "--collision.action", "remove", "--no-warnings"]
+        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length]
+                # "--collision.check-junctions", "true", "--collision.action", "remove", "--no-warnings"]
 
         if mode == "gui":
             binary = "sumo-gui"
@@ -158,7 +158,7 @@ class TrafficEnv(Env):
 		min_ttc = 10
 		action  = -1
 		front_warning = False
-		# pre_collision = False
+		pre_collision = False
 
 		routeID = self.ego_veh.routeID
 		# straight cross
@@ -180,11 +180,10 @@ class TrafficEnv(Env):
 					if rel_ang < 0.0:
 						rel_ang = 2*math.pi + rel_ang
 
-					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+					if abs(rel_ang - ego_ang) < 0.5 and rel_dist < 10.0: 
 						front_warning = True
-
-					# if rel_dist < 4.0: 
-					# 	pre_collision = True
+						if rel_dist < 2.0:
+							pre_collision = True
 
 					if new_ttc < min_ttc:
 						min_ttc = new_ttc
@@ -207,11 +206,10 @@ class TrafficEnv(Env):
 					if rel_ang < 0.0:
 						rel_ang = 2*math.pi + rel_ang
 
-					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+					if abs(rel_ang - ego_ang) < 0.5 and rel_dist < 10.0: 
 						front_warning = True
-
-					# if rel_dist < 4.0: 
-					# 	pre_collision = True
+						if rel_dist < 2.0:
+							pre_collision = True
 
 					if new_ttc < min_ttc:
 						min_ttc = new_ttc
@@ -235,11 +233,10 @@ class TrafficEnv(Env):
 					if rel_ang < 0.0:
 						rel_ang = 2*math.pi + rel_ang
 
-					if abs(rel_ang - ego_ang) < 0.7 and rel_dist < 10.0: 
+					if abs(rel_ang - ego_ang) < 0.5 and rel_dist < 10.0: 
 						front_warning = True
-
-					# if rel_dist < 4.0: 
-					# 	pre_collision = True
+						if rel_dist < 2.0:
+							pre_collision = True
 
 					if new_ttc < min_ttc:
 						min_ttc = new_ttc
@@ -248,17 +245,17 @@ class TrafficEnv(Env):
 			print 'Invalid route for ego-vehicle. No action will be taken.'
 
 		# decision making based on min time-to-collision
-		if (front_warning and min_ttc < 3.0): 
+		if (front_warning and min_ttc < 3.0) or pre_collision: 
 			action = 2
 		else:
-			if min_ttc > 2.0 or abs(ego_pos[0] - 250) > 4 or ego_pos[1] - 250 > 4:
+			if min_ttc > 2.0 or abs(ego_pos[0] - 250) > 3 or ego_pos[1] - 250 > 2:
 				action = 1
-			elif min_ttc < 1.2:
+			elif min_ttc < 1.5:
 				action = 2
 			else: 
 				action = 0 
 
-		print 'min ttc: ', min_ttc, ' front warning: ', front_warning
+		# print 'min ttc: ', min_ttc, ' front warning: ', front_warning
 
 		return action
 
