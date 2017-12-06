@@ -38,7 +38,9 @@ class TrafficEnv(Env):
         self.loop_variables = [tc.LAST_STEP_MEAN_SPEED, tc.LAST_STEP_TIME_SINCE_DETECTION, tc.LAST_STEP_VEHICLE_NUMBER]
         self.lanes = lanes
         self.detector = detector
-        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length]
+        args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length,
+                "--collision.check-junctions", "true", "--collision.action", "remove", "--no-warnings"]
+
         if mode == "gui":
             binary = "sumo-gui"
             args += ["-S", "-Q", "--gui-settings-file", guifile]
@@ -60,6 +62,8 @@ class TrafficEnv(Env):
         self.ego_vehicles = ego_vehicles
         self.ego_veh = ego_vehicles[0]
         self.ego_veh_collision = False
+
+        self.braking_time = 0.
 
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
@@ -101,17 +105,23 @@ class TrafficEnv(Env):
             traci.simulationStep()
         self.ego_veh = random.choice(self.ego_vehicles)
         self.ego_veh_collision = False
+        self.braking_time = 0.
         traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
                           pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
         traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
         # self.screenshot()
 
-    def stop_sumo(self):
+    def _stop_sumo(self):
         if self.sumo_running:
             traci.close()
             self.sumo_running = False
 
-    def check_collision(self):
+    def check_collision(self, obstacle_image):
+        if (obstacle_image[:,:,0] * obstacle_image[:,:,1]).any():
+            self.ego_veh_collision = True
+        else:
+            self.ego_veh_collision = False
+
         if self.ego_veh.vehID in traci.vehicle.getIDList():
             min_dist = 100.00
             ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
@@ -265,6 +275,8 @@ class TrafficEnv(Env):
             self.start_sumo()
         self.sumo_step += 1
 
+        if action == 2:
+            self.braking_time += 1
 
         new_speed = traci.vehicle.getSpeed(self.ego_veh.vehID) + self.sumo_deltaT * self.throttle_actions[action]
         traci.vehicle.setSpeed(self.ego_veh.vehID, new_speed)
@@ -273,8 +285,8 @@ class TrafficEnv(Env):
         # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh.vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
-        min_dist = self.check_collision()
         observation = self._observation()
+        min_dist = self.check_collision(observation)
         reward = self._reward(min_dist)
 
         # print self.check_collision()
@@ -285,7 +297,9 @@ class TrafficEnv(Env):
                # or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
         # self.screenshot()
         # if done:
-        #     self.stop_sumo()
+        #     print "Collision?  ", self.ego_veh_collision
+        #     print "Steps = ", self.sumo_step, "      |    braking steps = ", self.braking_time
+        
         return observation, reward, done, self.route_info
 
     def screenshot(self):
