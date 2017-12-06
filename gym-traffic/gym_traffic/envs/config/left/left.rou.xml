@@ -1,0 +1,17 @@
+<routes>
+    <vType accel="1.0" decel="5.0" id="Car" length="4.0" maxSpeed="25.0" sigma="0.0" />
+    <vType accel="1.0" decel="5.0" id="Van" length="6.0" maxSpeed="25.0" sigma="0.0" guiShape="passenger/van" />
+    <vType accel="1.0" decel="5.0" id="EgoCar" color="blue" length="4.5" maxSpeed="20.0" sigma="0.50" impatience="0.1" vClass="passenger" guiShape="passenger" />
+    
+    <route id="route_ew" edges="e_m m_w"/>
+    <route id="route_we" edges="w_m m_e"/>
+    <route id="route_ns" edges="n_m m_s"/>
+    <route id="route_sn" edges="s_m m_n"/>
+    
+    <route id="route_sw" edges="s_m m_w"/>
+    
+    <flow depart="1" id="flow_e_w_car" route="route_ew" type="Car" begin="0" end="3600" probability="0.1" />
+    <flow depart="1" id="flow_w_e_car" route="route_we" type="Car" begin="0" end="3600" probability="0.1" />
+    <flow depart="1" id="flow_e_w_van" route="route_ew" type="Van" begin="0" end="3600" probability="0.1" />
+    <flow depart="1" id="flow_w_e_van" route="route_we" type="Van" begin="0" end="3600" probability="0.1" />
+</routes>
