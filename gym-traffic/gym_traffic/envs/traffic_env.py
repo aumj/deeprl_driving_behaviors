@@ -148,7 +148,7 @@ class TrafficEnv(Env):
         elif self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
             reward = 1000
         elif min_dist < 2.5:
-            reward = -100
+            reward = -10
         else:
             reward = -1
         return reward
@@ -182,7 +182,7 @@ class TrafficEnv(Env):
         # if done:
         #     print "Collision?  ", self.ego_veh_collision
         #     print "Steps = ", self.sumo_step, "      |    braking steps = ", self.braking_time
-        
+
         return observation, reward, done, self.route_info
 
     def screenshot(self):

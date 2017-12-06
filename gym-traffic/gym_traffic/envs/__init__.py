@@ -6,5 +6,7 @@ else:
     sys.exit("please declare environment variable 'SUMO_HOME'")
 
 from gym_traffic.envs.traffic_env import TrafficEnv
+from gym_traffic.envs.traffic_env_multi import TrafficEnvMulti
 from gym_traffic.envs.traffic_env_simple import TrafficEnvSimple
 from gym_traffic.envs.traffic_env_cross2 import TrafficEnvCross2
+from gym_traffic.envs.traffic_env_cross4lane import TrafficEnvCross4Lane

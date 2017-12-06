@@ -164,8 +164,8 @@
     <connection from="m_s" to="s_m" fromLane="1" toLane="1" via=":South_0_0" dir="t" state="M"/>
     <connection from="m_w" to="w_m" fromLane="1" toLane="1" via=":West_0_0" dir="t" state="M"/>
     <connection from="n_m" to="m_w" fromLane="0" toLane="0" via=":Main_0_0" dir="r" state="m"/>
-    <connection from="n_m" to="m_s" fromLane="0" toLane="0" via=":Main_1_0" dir="s" state="m"/>
-    <connection from="n_m" to="m_s" fromLane="1" toLane="1" via=":Main_1_1" dir="s" state="m"/>
+    <connection from="n_m" to="m_s" fromLane="0" toLane="0" via=":Main_1_0" dir="s" state="M"/>
+    <connection from="n_m" to="m_s" fromLane="1" toLane="1" via=":Main_1_1" dir="s" state="M"/>
     <connection from="n_m" to="m_e" fromLane="1" toLane="1" via=":Main_3_0" dir="l" state="m"/>
     <connection from="s_m" to="m_e" fromLane="0" toLane="0" via=":Main_8_0" dir="r" state="m"/>
     <connection from="s_m" to="m_n" fromLane="0" toLane="0" via=":Main_9_0" dir="s" state="m"/>

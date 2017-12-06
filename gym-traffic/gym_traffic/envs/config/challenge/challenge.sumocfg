@@ -1,15 +1,8 @@
 <configuration>
     <input>
-        <net-file value="cross2.net.xml"/>
-        <route-files value="cross2.rou.xml"/>
-        <!-- <additional-files value="cross2.add.xml"/> -->
+        <net-file value="challenge.net.xml"/>
+        <route-files value="challenge.rou.xml"/>
+        <additional-files value="challenge.add.xml"/> 
     </input>
-    
-    <collisions>
-        <collision.check-junctions value="True"/>
-        <collision.action value="warn"/>
-    </collisions>
-    
-    <step-length value="0.1"/>
     <gui-settings-file value="view.settings.xml"/>
 </configuration>

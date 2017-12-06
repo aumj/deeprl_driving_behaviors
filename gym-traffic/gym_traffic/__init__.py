@@ -31,3 +31,35 @@ register(
     kwargs={"mode": "cli"},
     nondeterministic=True
 )
+
+register(
+    id='Traffic-Cross4Lane-gui-v0',
+    entry_point='gym_traffic.envs:TrafficEnvCross4Lane',
+    tags={'wrapper_config.TimeLimit.max_episode_steps': 1000},
+    kwargs={"mode": "gui"},
+    nondeterministic=True
+)
+
+register(
+    id='Traffic-Cross4Lane-cli-v0',
+    entry_point='gym_traffic.envs:TrafficEnvCross4Lane',
+    tags={'wrapper_config.TimeLimit.max_episode_steps': 1000},
+    kwargs={"mode": "cli"},
+    nondeterministic=True
+)
+
+register(
+    id='Traffic-TrafficEnvMulti-gui-v0',
+    entry_point='gym_traffic.envs:TrafficEnvMulti',
+    tags={'wrapper_config.TimeLimit.max_episode_steps': 1000},
+    kwargs={"mode": "gui"},
+    nondeterministic=True
+)
+
+register(
+    id='Traffic-TrafficEnvMulti-cli-v0',
+    entry_point='gym_traffic.envs:TrafficEnvMulti',
+    tags={'wrapper_config.TimeLimit.max_episode_steps': 1000},
+    kwargs={"mode": "cli"},
+    nondeterministic=True
+)

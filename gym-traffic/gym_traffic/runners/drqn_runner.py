@@ -3,6 +3,7 @@ from tqdm import tqdm
 import tensorflow as tf
 import imageio
 imageio.plugins.ffmpeg.download()
+import gym
 from gym_traffic.utils.helper import *
 from gym_traffic.agents.drqn import DRQN
 from IPython import embed
@@ -43,6 +44,7 @@ class DRQNRunner(object):
     self.endE = 0.1 #Final chance of random action
     self.anneling_steps = 10000 #How many steps of training to reduce startE to endE.
     self.num_episodes = 10000 #How many episodes of game environment to train network with.
+    self.num_episodes_env = 10 # How many episodes to train per environment (when using multiple envs)
     self.pre_train_steps = 10000 #How many steps of random actions before training begins.
     self.load_model = False #Whether to load a saved model.
     self.path = "./drqn" #The path to save our model to.
@@ -53,7 +55,10 @@ class DRQNRunner(object):
     self.tau = 0.001
 
 
-  def run_training(self, env):
+
+  def run_training(self, envs):
+    env = gym.make(random.choice(envs))
+
     tf.reset_default_graph()
 
     #We define the cells for the primary and target q-networks
@@ -105,7 +110,14 @@ class DRQNRunner(object):
         #Reset environment and get first new observation
         print ('Episode: ', i)
         # print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
-        sP = env.reset()
+
+        if i > 0 and i % self.num_episodes_env == 0:
+            env.unwrapped._stop_sumo()
+            env = gym.make(random.choice(envs))
+            sP = env.reset()
+        else:
+            sP = env.reset()
+
         # s = processState(sP)
         s = sP
         d = False

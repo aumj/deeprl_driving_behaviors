@@ -41,7 +41,7 @@ def example(operation, gui):
 
     ## TRAINING
     if (operation == 'train'):
-        train_env = gym.make('Traffic-Simple-cli-v0')
+        train_envs = ['Traffic-Simple-cli-v0', 'Traffic-Cross2-cli-v0', 'Traffic-Cross4Lane-cli-v0', 'Traffic-TrafficEnvMulti-cli-v0']
         runner = DRQNRunner(max_steps_per_episode=1000) ## make a new class DRQNRunner which will have all the
     ## functionality of "Training the network" - in the run function
     ## Don't worry about testing here's
@@ -51,7 +51,9 @@ def example(operation, gui):
     ## add info everywhere, see if it will cause any problems
 
     # def run(self, env, nb_epoch, nb_episodes = 100, render=True, verbose=True, train=True)
-        runner.run_training(train_env)
+        runner.run_training(train_envs)
+
+
     elif (operation == 'test'):
         if gui:
             train_env = gym.make('Traffic-Simple-gui-v0')
@@ -59,6 +61,7 @@ def example(operation, gui):
         else:
             train_env = gym.make('Traffic-Simple-cli-v0')
             tester = DRQNTester()
+
         tester.run_testing(train_env)
 
 
