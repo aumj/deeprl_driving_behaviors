@@ -8,8 +8,8 @@
     <route id="route_ns" edges="n_m m_s"/>
     <route id="route_sn" edges="s_m m_n"/>
     
-    <flow depart="1" id="flow_e_w_car" route="route_ew" type="Car" begin="0" end="3600" probability="0.25" />
-    <flow depart="1" id="flow_w_e_car" route="route_we" type="Car" begin="0" end="3600" probability="0.25" />
-    <flow depart="1" id="flow_e_w_van" route="route_ew" type="Van" begin="0" end="3600" probability="0.25" />
-    <flow depart="1" id="flow_w_e_van" route="route_we" type="Van" begin="0" end="3600" probability="0.25" />
+    <flow depart="1" id="flow_e_w_car" route="route_ew" type="Car" begin="0" end="3600" probability="0.25" departLane="random"/>
+    <flow depart="1" id="flow_w_e_car" route="route_we" type="Car" begin="0" end="3600" probability="0.25" departLane="random"/>
+    <flow depart="1" id="flow_e_w_van" route="route_ew" type="Van" begin="0" end="3600" probability="0.25" departLane="random"/>
+    <flow depart="1" id="flow_w_e_van" route="route_we" type="Van" begin="0" end="3600" probability="0.25" departLane="random"/>
 </routes>
