@@ -8,16 +8,16 @@ from gym_traffic.agents.drqn import DRQN
 from IPython import embed
 
 class experience_buffer():
-  def __init__(self, buffer_size = 200):
+  def __init__(self, buffer_size = 500):
     self.buffer = []
     self.buffer_size = buffer_size
-  
+
   def add(self,experience):
     if len(self.buffer) + 1 >= self.buffer_size:
       self.buffer[0:(1+len(self.buffer))-self.buffer_size] = []
     self.buffer.append(experience)
     print ('buffer_size: ', len(self.buffer))
-          
+
   def sample(self,batch_size,trace_length):
     # print ('np random sample: ', 'self.buffer: ', len(self.buffer), 'batch_size: ', batch_size)
     sampled_episodes = random.sample(self.buffer,batch_size)
@@ -32,7 +32,7 @@ class experience_buffer():
 
 class DRQNRunner(object):
 
-  def __init__(self, max_steps_per_episode = 200):
+  def __init__(self, max_steps_per_episode = 1000):
     # self.max_steps_per_episode=max_steps_per_episode
           #Setting the training parameters
     self.batch_size = 4 #How many experience traces to use for each training step.
@@ -72,7 +72,7 @@ class DRQNRunner(object):
 
     myBuffer = experience_buffer()
 
-    #Set the rate of random action decrease. 
+    #Set the rate of random action decrease.
     e = self.startE
     stepDrop = (self.startE - self.endE)/self.anneling_steps
 
@@ -88,8 +88,8 @@ class DRQNRunner(object):
     ##Write the first line of the master log-file for the Control Center
     with open('../Center/log.csv', 'w') as myfile:
       wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-      wr.writerow(['Episode','Length','Reward','IMG','LOG','SAL'])    
-      
+      wr.writerow(['Episode','Length','Reward','IMG','LOG','SAL'])
+
 
     with tf.Session() as sess:
       if (self.load_model == True):
@@ -97,7 +97,7 @@ class DRQNRunner(object):
         ckpt = tf.train.get_checkpoint_state(self.path)
         saver.restore(sess,ckpt.model_checkpoint_path)
       sess.run(init)
-     
+
       updateTarget(targetOps,sess) #Set the target network to be equal to the primary network.
       for i in range(self.num_episodes):
         episodeBuffer = []
@@ -113,7 +113,7 @@ class DRQNRunner(object):
         j = 0
         state = (np.zeros([1, self.h_size]),np.zeros([1, self.h_size])) #Reset the recurrent layer's hidden state
         #The Q-Network
-        while j < self.max_epLength: 
+        while j < self.max_epLength:
           j+=1
           # print ('Episode: ', i, ' Step: ', j)
           #Choose an action greedily (with e chance of random action) from the Q-network
@@ -147,17 +147,17 @@ class DRQNRunner(object):
               # print ("------------- in --------------")
               updateTarget(targetOps,sess)
               #Reset the recurrent layer's hidden state
-              state_train = (np.zeros([self.batch_size, self.h_size]),np.zeros([self.batch_size, self.h_size])) 
-              
+              state_train = (np.zeros([self.batch_size, self.h_size]),np.zeros([self.batch_size, self.h_size]))
+
               trainBatch = myBuffer.sample(self.batch_size, self.trace_length) #Get a random batch of experiences. (32,5)
               # trainBatch_stacked = tf.stack(trainBatch[:,3])
               # embed()
-              # print ('trainBatch.shape: ', trainBatch.shape, 'trainBatch[:,3].shape: ', (trainBatch[:,3]/255.0).shape, 
+              # print ('trainBatch.shape: ', trainBatch.shape, 'trainBatch[:,3].shape: ', (trainBatch[:,3]/255.0).shape,
               #   'np.vstack(trainBatch[:,3]/255.0).shape', np.vstack(trainBatch[:,3]/255.0).shape, 'trainBatch_stacked.shape: ', trainBatch_stacked.shape)
               #Below we perform the Double-DQN update to the target Q-values
               trainBatch_st_0 = np.concatenate([arr[np.newaxis] for arr in trainBatch[:,0]])
               trainBatch_st_1 = np.concatenate([arr[np.newaxis] for arr in trainBatch[:,3]])
-              
+
               Q1 = sess.run(mainQN.predict, feed_dict={mainQN.imageIn:trainBatch_st_1/255.0,
                 mainQN.trainLength: self.trace_length, mainQN.state_in: state_train, mainQN.batch_size: self.batch_size})
 
@@ -168,10 +168,10 @@ class DRQNRunner(object):
               doubleQ = Q2[range(self.batch_size * self.trace_length), Q1]
               targetQ = trainBatch[:,2] + (self.y*doubleQ * end_multiplier)
               #Update the network with our target values.
-              sess.run(mainQN.updateModel, feed_dict={mainQN.imageIn: trainBatch_st_0/255.0, 
-                mainQN.targetQ: targetQ, mainQN.actions: trainBatch[:,1], mainQN.trainLength: self.trace_length, 
+              sess.run(mainQN.updateModel, feed_dict={mainQN.imageIn: trainBatch_st_0/255.0,
+                mainQN.targetQ: targetQ, mainQN.actions: trainBatch[:,1], mainQN.trainLength: self.trace_length,
                 mainQN.state_in: state_train, mainQN.batch_size: self.batch_size})
-        
+
           rAll += r
           s = s1
           sP = s1P
@@ -180,7 +180,7 @@ class DRQNRunner(object):
             # print ('********* DONE! *********')
             break
 
-        print ('steps taken: ', j)  
+        print ('steps taken: ', j)
 
         #Add the episode to the experience buffer
         if (len(episodeBuffer)>= self.trace_length):
@@ -190,13 +190,12 @@ class DRQNRunner(object):
         jList.append(j)
         rList.append(rAll)
 
-        #Periodically save the model. 
+        #Periodically save the model.
         if i % 100 == 0 and i != 0:
             saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
             print ("Saved Model")
         if len(rList) % self.summaryLength == 0 and len(rList) != 0:
             print (total_steps,np.mean(rList[-self.summaryLength:]), e)
-            saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer), [len(episodeBuffer),5]), self.summaryLength, 
+            saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer), [len(episodeBuffer),5]), self.summaryLength,
               self.h_size, sess, mainQN, self.time_per_step)
       saver.save(sess,self.path+'/model-'+str(i)+'.cptk')
-

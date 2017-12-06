@@ -91,7 +91,8 @@ class TrafficEnv(Env):
                 traci.inductionloop.subscribe(loopid, self.loop_variables)
             self.sumo_running = True
         else: # Reset vehicles in simulation
-            traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
+            if self.ego_veh.vehID in traci.vehicle.getIDList():
+                traci.vehicle.remove(vehID=self.ego_veh.vehID, reason=2)
             traci.simulation.clearPending()
 
         self.sumo_step = 0
@@ -111,20 +112,23 @@ class TrafficEnv(Env):
             self.sumo_running = False
 
     def check_collision(self):
-        min_dist = 100.00
-    	ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
-    	for i in traci.vehicle.getIDList():
-    		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
-    		if i != self.ego_veh.vehID and i.find('flow_n_s') == -1:
-    			pos = np.array(traci.vehicle.getPosition(i))
-    			new_dist = np.linalg.norm(ego_pos - pos)
-    			if new_dist < min_dist:
-    				min_dist = new_dist
+        if self.ego_veh.vehID in traci.vehicle.getIDList():
+            min_dist = 100.00
+            ego_pos = np.array(traci.vehicle.getPosition(self.ego_veh.vehID))
+            for i in traci.vehicle.getIDList():
+        		# excluding ego vehicle AND any vehicle from the opposite direction (NS) for comparison
+                if i != self.ego_veh.vehID:
+        			pos = np.array(traci.vehicle.getPosition(i))
+        			new_dist = np.linalg.norm(ego_pos - pos)
+        			if new_dist < min_dist:
+        				min_dist = new_dist
+        	if min_dist < 1.25: self.ego_veh_collision = True
+            else: self.ego_veh_collision = False
 
-    	if min_dist < 1.25:
-            self.ego_veh_collision = True
         else:
-            self.ego_veh_collision = False
+            min_dist = 0.
+            self.ego_veh_collision = True
+
         return min_dist
 
     # choose action based on the Time-To-Collision metric
@@ -240,12 +244,12 @@ class TrafficEnv(Env):
 
     # TODO: Refine reward function!!
     def _reward(self, min_dist):
-        if self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
-            reward = 1000
-        elif self.ego_veh_collision:
+        if self.ego_veh_collision:
             reward = -5000
+        elif self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
+            reward = 1000
         elif min_dist < 2.5:
-            reward = -150
+            reward = -100
         else:
             reward = -1
         return reward
@@ -255,6 +259,7 @@ class TrafficEnv(Env):
             self.start_sumo()
         self.sumo_step += 1
 
+
         new_speed = traci.vehicle.getSpeed(self.ego_veh.vehID) + self.sumo_deltaT * self.throttle_actions[action]
         traci.vehicle.setSpeed(self.ego_veh.vehID, new_speed)
 
@@ -262,15 +267,15 @@ class TrafficEnv(Env):
         # print("car speed = ", traci.vehicle.getSpeed(self.ego_veh.vehID), "   | new speed = ",new_speed)
 
         traci.simulationStep()
-        observation = self._observation()
         min_dist = self.check_collision()
+        observation = self._observation()
         reward = self._reward(min_dist)
 
         # print self.check_collision()
 
-        done = self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
+        done = self.ego_veh_collision \
+               or self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
                or (self.sumo_step > self.simulation_end) \
-               or self.ego_veh_collision
                # or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
         # self.screenshot()
         # if done:
@@ -368,7 +373,7 @@ class TrafficEnv(Env):
 
 
         bound = 84
-        obstacle_image = np.zeros((bound,bound,3)) # 1 meter descretization image
+        obstacle_image = np.zeros((bound,bound,2)) # 1 meter descretization image
         if ego_car_in_scene:
             # insert ego car
             car_bounds = location2bounds(0.0, 0.0, 0.0)
@@ -384,16 +389,16 @@ class TrafficEnv(Env):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[bound-1-y,x,2] = 1
+                            obstacle_image[bound-1-y,x,1] = 1
                 #if horizontal
                 # if (other_car[5] == 'route_ew') or (other_car[5] == 'route_we'):
                 if (abs(other_car[3] - 90.0) < 0.01) or (abs(other_car[3] - 270.0) < 0.01):
                     car_bounds = location2bounds(other_car[1]-ego_car_pos[0], other_car[2]-ego_car_pos[1], other_car[3])
                     for x in range(int(car_bounds[0]), int(car_bounds[1]+1)):
                         for y in range(int(car_bounds[2]), int(car_bounds[3]+1)):
-                            obstacle_image[bound-1-y,x,2] = 1
+                            obstacle_image[bound-1-y,x,1] = 1
 
-            obstacle_image[:,:,2] = np.round(np.clip(rotate(obstacle_image[:,:,2], ego_car_ang, reshape=False, output=np.float), 0, 1))
+            obstacle_image[:,:,1] = (np.clip(rotate(obstacle_image[:,:,1], ego_car_ang, reshape=False, output=np.float), 0, 1))
 
             # plt.imsave('test.jpg', obstacle_image)
             # plt.ion()
