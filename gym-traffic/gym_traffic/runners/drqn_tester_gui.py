@@ -31,7 +31,7 @@ class DRQNTesterGUI(object):
     # self.tau = 0.001
 
     self.e = 0.0 #The chance of chosing a random action
-    self.num_episodes = 50 #How many episodes of game environment to train network with.
+    self.num_episodes = 50 #How many episodes of game environment to test network with.
     self.load_model = True #Whether to load a saved model.
     self.path = "./drqn" #The path to save/load our model to/from.
     self.h_size = 512 #The size of the final convolutional layer before splitting it into Advantage and Value streams.
@@ -62,11 +62,6 @@ class DRQNTesterGUI(object):
     if not os.path.exists(self.path):
         os.makedirs(self.path)
 
-    ##Write the first line of the master log-file for the Control Center
-    with open('../Center/log.csv', 'w') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(['Episode','Length','Reward','IMG','LOG','SAL'])
-
         #wr = csv.writer(open('./Center/log.csv', 'a'), quoting=csv.QUOTE_ALL)
     with tf.Session() as sess:
         if (self.load_model == True):
@@ -76,8 +71,10 @@ class DRQNTesterGUI(object):
         else:
             sess.run(init)
 
+        episodeMetrics = []
 
         for i in range(self.num_episodes):
+            print "Episode %d of %d" %(i, self.num_episodes)
             episodeBuffer = []
             #Reset environment and get first new observation
             sP = env.reset()
@@ -110,8 +107,10 @@ class DRQNTesterGUI(object):
                 s = s1
                 sP = s1P
                 state = state1
-                if d == True:
-
+                if d == True or j == self.max_epLength:
+                    (success, collision, steps, braking_steps) = env.unwrapped.metrics()
+                    episodeMetrics += [[i, steps, braking_steps, success, collision, rAll]]
+                    # print (success, collision, steps, braking_steps)
                     break
 
             bufferArray = np.array(episodeBuffer)
@@ -123,4 +122,13 @@ class DRQNTesterGUI(object):
                 print (total_steps,np.mean(rList[-self.summaryLength:]), self.e)
                 saveToCenter(i,rList,jList,np.reshape(np.array(episodeBuffer),[len(episodeBuffer),5]),\
                     self.summaryLength, self.h_size, sess, mainQN, self.time_per_step)
+
+    env.unwrapped._stop_sumo()
+
+    with open('../Center/test_results_'++'.csv', 'w') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(['Episode','Steps','Braking Steps','Goal Reached','Collision','Reward'])
+        for ep_metrics in episodeMetrics:
+            wr.writerow(ep_metrics)
+
     print ("Percent of succesful episodes: " + str(sum(rList)/self.num_episodes) + "%")

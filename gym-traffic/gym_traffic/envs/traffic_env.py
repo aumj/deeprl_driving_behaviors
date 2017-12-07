@@ -63,7 +63,8 @@ class TrafficEnv(Env):
         self.ego_veh = ego_vehicles[0]
         self.ego_veh_collision = False
 
-        self.braking_time = 0.
+        self.braking_time = 0
+        self.reached_goal = False
 
         # TO DO: re-define observation space !!
         # trafficspace = spaces.Box(low=float('-inf'), high=float('inf'),
@@ -105,7 +106,8 @@ class TrafficEnv(Env):
             traci.simulationStep()
         self.ego_veh = random.choice(self.ego_vehicles)
         self.ego_veh_collision = False
-        self.braking_time = 0.
+        self.reached_goal = False
+        self.braking_time = 0
         traci.vehicle.add(vehID=self.ego_veh.vehID, routeID=self.ego_veh.routeID,
                           pos=self.ego_veh.start_pos, speed=self.ego_veh.start_speed, typeID=self.ego_veh.typeID)
         traci.vehicle.setSpeedMode(vehID=self.ego_veh.vehID, sm=0) # All speed checks are off
@@ -115,6 +117,9 @@ class TrafficEnv(Env):
         if self.sumo_running:
             traci.close()
             self.sumo_running = False
+
+    def metrics(self):
+        return(int(self.reached_goal), int(self.ego_veh_collision), self.sumo_step, self.braking_time)
 
     def check_collision(self, obstacle_image):
         if (obstacle_image[:,:,0] * obstacle_image[:,:,1]).any():
@@ -263,7 +268,7 @@ class TrafficEnv(Env):
     def _reward(self, min_dist):
         if self.ego_veh_collision:
             reward = -5000
-        elif self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
+        elif self.reached_goal:
             reward = 1000
         elif min_dist < 2.5:
             reward = -10
@@ -288,18 +293,20 @@ class TrafficEnv(Env):
         traci.simulationStep()
         observation = self._observation()
         min_dist = self.check_collision(observation)
+
+        if not self.ego_veh_collision:
+            if self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)):
+                self.reached_goal = True
+
         reward = self._reward(min_dist)
 
         # print self.check_collision()
 
         done = self.ego_veh_collision \
-               or self.ego_veh.reached_goal(traci.vehicle.getPosition(self.ego_veh.vehID)) \
+               or self.reached_goal \
                or (self.sumo_step > self.simulation_end) \
                # or (self.ego_veh.vehID not in traci.vehicle.getIDList()) \
         # self.screenshot()
-        # if done:
-        #     print "Collision?  ", self.ego_veh_collision
-        #     print "Steps = ", self.sumo_step, "      |    braking steps = ", self.braking_time
 
         return observation, reward, done, self.route_info
 

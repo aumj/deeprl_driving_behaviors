@@ -40,5 +40,7 @@ for i_episode in tqdm(range(500)):
         # print "\n Reward: {}".format(reward)
         # print "------------------------------------------------"
         if done:
+            (success, collision, steps, braking_steps) = env.unwrapped.metrics()
+            print (success, collision, steps, braking_steps)
             print("Episode finished after {} timesteps".format(t+1), " with reward =", total_reward)
             break
