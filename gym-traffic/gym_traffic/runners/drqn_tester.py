@@ -31,7 +31,7 @@ class DRQNTester(object):
     # self.tau = 0.001
 
     self.e = 0.01 #The chance of chosing a random action
-    self.num_episodes = 100 #How many episodes of game environment test network with.
+    self.num_episodes = 350 #How many episodes of game environment test network with.
     self.load_model = True #Whether to load a saved model.
     self.path = "./drqn" #The path to save/load our model to/from.
     self.h_size = 512 #The size of the final convolutional layer before splitting it into Advantage and Value streams.
@@ -109,7 +109,7 @@ class DRQNTester(object):
                 state = state1
                 if d == True or j == self.max_epLength:
                     (success, collision, steps, braking_steps) = env.unwrapped.metrics()
-                    episodeMetrics += [[i, steps, braking_steps, success, collision, rAll]]
+                    episodeMetrics += [[i+1, steps, braking_steps, success, collision, rAll]]
                     # print (success, collision, steps, braking_steps)
                     break
 

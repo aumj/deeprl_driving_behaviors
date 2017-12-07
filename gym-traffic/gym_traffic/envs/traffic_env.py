@@ -105,6 +105,7 @@ class TrafficEnv(Env):
         for i in range(800):
             traci.simulationStep()
         self.ego_veh = random.choice(self.ego_vehicles)
+        # self.ego_veh = self.ego_vehicles[0]
         self.ego_veh_collision = False
         self.reached_goal = False
         self.braking_time = 0
@@ -271,7 +272,7 @@ class TrafficEnv(Env):
         elif self.reached_goal:
             reward = 1000
         elif min_dist < 2.5:
-            reward = -10
+            reward = -100
         else:
             reward = -1
         return reward

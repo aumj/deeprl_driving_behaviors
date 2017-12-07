@@ -109,7 +109,7 @@ class DRQNTesterGUI(object):
                 state = state1
                 if d == True or j == self.max_epLength:
                     (success, collision, steps, braking_steps) = env.unwrapped.metrics()
-                    episodeMetrics += [[i, steps, braking_steps, success, collision, rAll]]
+                    episodeMetrics += [[i+1, steps, braking_steps, success, collision, rAll]]
                     # print (success, collision, steps, braking_steps)
                     break
 
