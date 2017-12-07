@@ -10,19 +10,18 @@ The code of this repo has been tested on Ubuntu 14.04 and with Python 2.7
 
 1. [Install SUMO 0.30](http://sumo.dlr.de/wiki/Installing)
    Execute the following:
-
-  1. `sudo apt-get install sumo sumo-tools sumo-doc`
-  2. `sudo add-apt-repository ppa:sumo/stable`
-  3. `sudo apt-get update`
-  4. `sudo apt-get install sumo sumo-tools sumo-doc`
+   `sudo apt-get install sumo sumo-tools sumo-doc`
+   `sudo add-apt-repository ppa:sumo/stable`
+   `sudo apt-get update`
+   `sudo apt-get install sumo sumo-tools sumo-doc`
 
    Please make sure these instructions are followed exactly.
 
 2. Additional Python Packages install via `pip install [package-name]`:
-  1. `moviepy`
-  2. `imageio`
-  3. `tqdm`
-  4. `tensorflow==1.4`
+   `moviepy`
+   `imageio`
+   `tqdm`
+   `tensorflow==1.4`
 
 3. Include `export SUMO_HOME=/usr/share/sumo` in your `~/.bashrc` and `source ~/.bashrc`
 
