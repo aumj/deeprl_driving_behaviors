@@ -11,7 +11,6 @@
     <route id="route_se" edges="s_0 0_e"/>
     <route id="route_sw" edges="s_0 0_w"/>
 
-
     <flow depart="1" id="flow_n_s" route="route_ns" type="Car" begin="0" probability="$ns" />
     <flow depart="1" id="flow_s_n" route="route_sn" type="Car" begin="0" probability="$sn" />
     <flow depart="1" id="flow_e_w" route="route_ew" type="Car" begin="0" probability="$ew" />

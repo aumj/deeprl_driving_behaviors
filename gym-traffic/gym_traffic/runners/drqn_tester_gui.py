@@ -31,7 +31,7 @@ class DRQNTesterGUI(object):
     # self.tau = 0.001
 
     self.e = 0.0 #The chance of chosing a random action
-    self.num_episodes = 10 #How many episodes of game environment to train network with.
+    self.num_episodes = 50 #How many episodes of game environment to train network with.
     self.load_model = True #Whether to load a saved model.
     self.path = "./drqn" #The path to save/load our model to/from.
     self.h_size = 512 #The size of the final convolutional layer before splitting it into Advantage and Value streams.
