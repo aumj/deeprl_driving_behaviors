@@ -17,18 +17,22 @@ The code of this repo has been tested on Ubuntu 14.04 and with Python 2.7
   4. `sudo apt-get install sumo sumo-tools sumo-doc`
 
    Please make sure these instructions are followed exactly.
+
 2. Additional Python Packages install via `pip install [package-name]`:
   1. `moviepy`
   2. `imageio`
   3. `tqdm`
   4. `tensorflow==1.4`
-3. Include `export SUMO_HOME=/usr/share/sumo' in your `~/.bashrc` and `source ~/.bashrc`
+
+3. Include `export SUMO_HOME=/usr/share/sumo` in your `~/.bashrc` and `source ~/.bashrc`
 
 Training
 --------
 
 To train the DRQM:
+
 `cd [repo_root]/gym-traffic/examples`
+
 `python example_gym_traffic_drqn.py train`
 
 Experiments
