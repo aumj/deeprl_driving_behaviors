@@ -9,18 +9,27 @@ Installation
 The code of this repo has been tested on Ubuntu 14.04 and with Python 2.7
 
 1. [Install SUMO 0.30](http://sumo.dlr.de/wiki/Installing)
+
    Execute the following:
+
    `sudo apt-get install sumo sumo-tools sumo-doc`
+
    `sudo add-apt-repository ppa:sumo/stable`
+
    `sudo apt-get update`
+
    `sudo apt-get install sumo sumo-tools sumo-doc`
 
    Please make sure these instructions are followed exactly.
 
 2. Additional Python Packages install via `pip install [package-name]`:
+
    `moviepy`
+
    `imageio`
+
    `tqdm`
+
    `tensorflow==1.4`
 
 3. Include `export SUMO_HOME=/usr/share/sumo` in your `~/.bashrc` and `source ~/.bashrc`
@@ -40,13 +49,21 @@ Experiments
 TODO: STILL NEED TO SHOW FILE PATH DEPENDENCIES HERE
 
 To test a random routine:
+
 `cd [repo_root]/gym-traffic/examples`
+
 `python example_gym_traffic_random.py`
 
+
 To test a TTC (Time to Collision) rule based approach
+
 `cd [repo_root]/gym-traffic/examples`
+
 `python example_gym_traffic_ttc.py`
 
+
 To test the DRQN (Deep Recurrent Q-Netowork based approach
+
 `cd [repo_root]/gym-traffic/examples`
+
 `python example_gym_traffic_drqn.py test`
