@@ -267,14 +267,16 @@ class TrafficEnv(Env):
 
     # TODO: Refine reward function!!
     def _reward(self, min_dist):
+        step_reward = -5
+
         if self.ego_veh_collision:
             reward = -5000
         elif self.reached_goal:
-            reward = 1000
-        elif min_dist < 2.5:
-            reward = -100
+            reward = 5000
+        elif min_dist < 10.0:
+            reward = min(200, 200/min_dist)
         else:
-            reward = -1
+            reward = step_reward
         return reward
 
     def _step(self, action):
