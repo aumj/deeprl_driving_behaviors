@@ -35,7 +35,7 @@ class DRQNTesterGUI(object):
     self.load_model = True #Whether to load a saved model.
     self.path = "./drqn" #The path to save/load our model to/from.
     self.h_size = 512 #The size of the final convolutional layer before splitting it into Advantage and Value streams.
-    self.max_epLength = 200 #The max allowed length of our episode.
+    self.max_epLength = 500 #The max allowed length of our episode.
     self.time_per_step = 1 #Length of each step used in gif creation
     self.summaryLength = 100 #Number of epidoes to periodically save for analysis
     self.batch_size = 4
@@ -125,7 +125,7 @@ class DRQNTesterGUI(object):
 
     env.unwrapped._stop_sumo()
 
-    with open('../Center/test_results_'++'.csv', 'w') as myfile:
+    with open('../Center/test_results.csv', 'w') as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(['Episode','Steps','Braking Steps','Goal Reached','Collision','Reward'])
         for ep_metrics in episodeMetrics:
