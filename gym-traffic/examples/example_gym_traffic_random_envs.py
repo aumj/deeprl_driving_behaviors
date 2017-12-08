@@ -22,10 +22,10 @@ envs_cli = ['Traffic-Simple-cli-v0', 'Traffic-Cross2-cli-v0', 'Traffic-Cross4Lan
 
 if gui:
     env = gym.make(random.choice(envs_gui))
-    env = gym.make(envs_gui[0])
+    # env = gym.make(envs_gui[3])
 else:
     env = gym.make(random.choice(envs_cli))
-
+    
 if monitor:
     env = Monitor(env, "output/traffic/simple/random", force=True)
 
@@ -33,11 +33,12 @@ for i_episode in tqdm(range(num_episodes_total)):
     # Restart SUMO with a random environment every few episodes
     if i_episode > 0 and i_episode % num_episodes_env == 0:
         env.unwrapped._stop_sumo()
-        env = gym.make(random.choice(envs_gui))
-        # env = gym.make(envs_gui[3])
-        observation = env.reset()
-    else:
-        observation = env.reset()
+        if gui:
+            env = gym.make(random.choice(envs_gui))
+            # env = gym.make(envs_gui[3])
+        else:
+            env = gym.make(random.choice(envs_cli))
+    observation = env.reset()
     total_reward = 0
     for t in tqdm(range(500)):
         # env.render()

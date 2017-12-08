@@ -57,7 +57,8 @@ class DRQNRunner(object):
 
 
   def run_training(self, envs):
-    env = gym.make(random.choice(envs))
+    # env = gym.make(random.choice(envs))
+    env = gym.make(envs[0])
 
     tf.reset_default_graph()
 
