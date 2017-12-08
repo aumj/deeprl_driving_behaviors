@@ -113,8 +113,8 @@ class DRQNRunner(object):
         # print ('len(myBuffer.buffer): ', len(myBuffer.buffer))
 
         if i > 0 and i % self.num_episodes_env == 0:
-            env.unwrapped._stop_sumo()
-            env = gym.make(random.choice(envs))
+            # env.unwrapped._stop_sumo()
+            # env = gym.make(random.choice(envs))
             sP = env.reset()
         else:
             sP = env.reset()
