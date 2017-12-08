@@ -1,6 +1,6 @@
 <routes>
-    <vType accel="1.0" decel="5.0" id="Car" maxSpeed="20.0" sigma="0.50" guiShape="passenger"/>
-    <vType accel="1.0" decel="5.0" id="Van" maxSpeed="20.0" sigma="0.50" guiShape="passenger/van" />
+    <vType accel="1.0" decel="5.0" id="Car" maxSpeed="15.0" sigma="0.50" guiShape="passenger"/>
+    <vType accel="1.0" decel="5.0" id="Van" maxSpeed="15.0" sigma="0.50" guiShape="passenger/van" />
     <vType accel="1.0" decel="5.0" id="EgoCar" color="blue" maxSpeed="20.0" sigma="0.50" impatience="0.1" vClass="passenger" guiShape="passenger" />
 
     <route id="route_ew" edges="e_m m_w"/>

@@ -29,8 +29,8 @@ class TrafficEnvCross2(TrafficEnv):
     def route_sample(self):
         ew = np.random.normal(0.12, 0.02)
         we = np.random.normal(0.12, 0.02)
-        ew2 = np.random.normal(0.03, 0.02)
-        we2 = np.random.normal(0.03, 0.02)
+        ew2 = np.random.normal(0.02, 0.02)
+        we2 = np.random.normal(0.23, 0.02)
         ns = np.random.normal(0.08, 0.02)
         sn = 0.01
 
