@@ -39,7 +39,7 @@ class TrafficEnv(Env):
         self.lanes = lanes
         self.detector = detector
         args = ["--net-file", netfile, "--route-files", tmpfile, "--additional-files", addfile, "--step-length", step_length,
-                "--collision.check-junctions", "true", "--collision.action", "remove", "--no-warnings"]
+                "--collision.check-junctions", "true", "--collision.action", "remove", "--no-warnings", "--verbose"]
 
         if mode == "gui":
             binary = "sumo-gui"
@@ -268,15 +268,21 @@ class TrafficEnv(Env):
     # TODO: Refine reward function!!
     def _reward(self, min_dist):
         step_reward = -5
+        # if self.ego_veh_collision:
+        #     reward = -5000
+        # elif self.reached_goal:
+        #     reward = 1000
+        # elif min_dist < 2.5:
+        #     reward = -100
+        # else:
+        #     reward = step_reward
 
         if self.ego_veh_collision:
-            reward = -5000
+            reward = -50000
         elif self.reached_goal:
-            reward = 5000
-        elif min_dist < 10.0:
-            reward = min(200, 200/min_dist)
+            reward = 10000
         else:
-            reward = step_reward
+            reward = -max(min(500, 350/(min_dist*min_dist)), step_reward)
         return reward
 
     def _step(self, action):
