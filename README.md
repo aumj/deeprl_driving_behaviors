@@ -62,7 +62,7 @@ To test a TTC (Time to Collision) rule based approach
 `python example_gym_traffic_ttc.py`
 
 
-To test the DRQN (Deep Recurrent Q-Netowork based approach
+To test the DRQN (Deep Recurrent Q-Network) based approach
 
 `cd [repo_root]/gym-traffic/examples`
 
