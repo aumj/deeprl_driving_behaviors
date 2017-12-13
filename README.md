@@ -37,7 +37,9 @@ The code of this repo has been tested on Ubuntu 14.04 and with Python 2.7
 Training
 --------
 
-To train the DRQM:
+To train the DRQN:
+Add a folder called Center in the gym-traffic folder. In the Center folder, create a subdirectory called frames. This is where the learning result frames are usually stored.
+Create a folder in the examples folder called drqn. This is where the weights checkpoint files are stored.
 
 `cd [repo_root]/gym-traffic/examples`
 
