@@ -32,8 +32,8 @@ Training
 --------
 
 To train the DRQN:
-Add a folder called Center in the gym-traffic folder. In the Center folder, create a subdirectory called frames. This is where the learning result frames are usually stored.
-Create a folder in the examples folder called drqn. This is where the weights checkpoint files are stored.
+Add a folder called Center in the gym-traffic folder. In the Center folder, create a subdirectory called frames. This is where the learning result frames are stored.
+Create a folder in the examples folder called drqn. This is where the weights checkpoint files are stored. The checkpoint files are created every 100 episodes, so you must train at least 100 in order to run the DRQN.
 
 `cd [repo_root]/gym-traffic/examples`
 
@@ -43,8 +43,6 @@ Experiments
 -----------
 For each of these experiments, you will probably want to set the delay to 0ms once the GUI opens. This will decrease the amount of time you spend waiting for the ego-vehicle to reach the intersection. The simulation should slow down when the ego-vehicle arrives, but you may still need to manage the speed manually via the delay setting.
 
-TODO: STILL NEED TO SHOW FILE PATH DEPENDENCIES HERE
-
 To test a random routine:
 
 `cd [repo_root]/gym-traffic/examples`
@@ -52,14 +50,14 @@ To test a random routine:
 `python example_gym_traffic_random.py`
 
 
-To test a TTC (Time to Collision) rule based approach
+To test a TTC (Time to Collision) rule based approach:
 
 `cd [repo_root]/gym-traffic/examples`
 
 `python example_gym_traffic_ttc.py`
 
 
-To test the DRQN (Deep Recurrent Q-Network) based approach
+To test the DRQN (Deep Recurrent Q-Network) based approach (you must have trained at least 100 episodes before running this):
 
 `cd [repo_root]/gym-traffic/examples`
 
