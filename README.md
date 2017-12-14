@@ -22,15 +22,9 @@ The code of this repo has been tested on Ubuntu 14.04 and with Python 2.7
 
    Please make sure these instructions are followed exactly.
 
-2. Additional Python Packages install via `pip install [package-name]`:
+2. Additional Python Packages install via pip:
 
-   `moviepy`
-
-   `imageio`
-
-   `tqdm`
-
-   `tensorflow==1.4`
+   `pip install moviepy imageio tqdm tensorflow==1.4 requests scipy matplotlib ipython`
 
 3. Include `export SUMO_HOME=/usr/share/sumo` in your `~/.bashrc` and `source ~/.bashrc`
 
