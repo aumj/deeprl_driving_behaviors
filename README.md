@@ -41,6 +41,7 @@ Create a folder in the examples folder called drqn. This is where the weights ch
 
 Experiments
 -----------
+For each of these experiments, you will probably want to set the delay to 0ms once the GUI opens. This will decrease the amount of time you spend waiting for the ego-vehicle to reach the intersection. The simulation should slow down when the ego-vehicle arrives, but you may still need to manage the speed manually via the delay setting.
 
 TODO: STILL NEED TO SHOW FILE PATH DEPENDENCIES HERE
 
