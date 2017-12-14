@@ -1,7 +1,7 @@
 A Deep Reinforcement Learning Approach to Behavioral Planning for Autonomous Vehicles
 =====================================================================================
 
-Behavioral planning for autonomous vehicles in scenarios such as intersections and lane-changing/merging is a challenging task. The code in this repository is for a couple of the experiments performed for [this paper](https://www.overleaf.com/read/djkbmsqqwfgf).
+Behavioral planning for autonomous vehicles in scenarios such as intersections and lane-changing/merging is a challenging task. The code in this repository is for a couple of the experiments performed for [this paper](https://drive.google.com/file/d/1SCEF6Fn0J4lhWHa8SsjbmhmZMXFfp1ba/view?usp=sharing).
 
 Installation
 ------------
