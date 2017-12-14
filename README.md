@@ -62,3 +62,7 @@ To test the DRQN (Deep Recurrent Q-Network) based approach (you must have traine
 `cd [repo_root]/gym-traffic/examples`
 
 `python example_gym_traffic_drqn.py test`
+
+To run with the GUI enabled:
+
+`python example_gym_traffic_drqn.py test --gui`
